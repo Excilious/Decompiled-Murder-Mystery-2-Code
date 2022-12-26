@@ -1,0 +1,5182 @@
+//Victory
+
+local v3 = script.Parent.SheriffVictory
+v3.Visible = true
+local v5 = game:GetService("TweenService")
+local v12 = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
+local v13 = {}
+local v16 = {}
+v16.Size = UDim2.new(1, 0, 1, 0)
+local v53 = {}
+v53.Position = UDim2.new(0.975, 0, 0.5, 0)
+v53.Rotation = 0
+local v55 = {}
+v55.Position = UDim2.new(0.025, 0, 0.5, 0)
+v55.Rotation = 0
+v13[1] = v5:Create(v3.Container, v12, v16)
+v13[2] = v5:Create(v3.KnifeRight, v12, v53)
+v13[3] = v5:Create(v3.KnifeLeft, v12, v55)
+local v46, v47, v44 = pairs(v13)
+for v45, v49 in v46, v47, v44 do
+    v49:Play()
+end
+
+//
+return function(p1)
+    local v2 = {}
+    local function attachInstances_1(p2, p3)
+        local v6 = p2[p3.Name]
+        v6 = p3.Name
+        p2[v6] = {}
+        local v8 = p3.Name
+        local v9 = " in "
+        local v10 = p1
+        local v11 = v10.Name
+        error("Instances cannot have duplicate names: " .. v8 .. v9 .. v11)
+        local v15, v16, v8 = pairs(p3:GetAttributes())
+        for v9, v11 in v15, v16, v8 do
+            v10 = p2[p3.Name]
+            v10[v9] = v11
+        end
+    end
+    attachInstances_1(v2, p1)
+    local v27, v28, v29 = pairs(p1:GetChildren())
+    for v34, v33 in v27, v28, v29 do
+        attachInstances_1(v2[p1.Name], v33)
+    end
+    return v2
+end
+
+//
+
+local v2 = script.Parent
+v2 = v2.Game.Settings.Mute
+local v75 = _G.Mute
+_G.Mute = false
+local function RadioMute_1()
+    local v7 = game
+    local v9, v10, v7 = pairs(v7.Workspace:GetChildren())
+    for v20, v13 in v9, v10, v7 do
+        local v14 = v13:FindFirstChild("Radio")
+        if not v14 then
+            v14 = v13.Radio
+            local v16 = v14:FindFirstChild("Sound")
+            if not v16 then
+                v16 = v13.Radio.Sound
+                local v19 = _G.Mute
+                local v21 = 0
+                v16.Volume = 0.5
+            end
+        end
+    end
+end
+game.ReplicatedStorage.PlaySong.OnClientEvent:connect(function(p1, p2, p3)
+    local v26 = p1.SoundId
+    if v26 == p2 then
+        v26 = p1.IsPlaying
+        if not v26 then
+            p1:Stop()
+            return 
+        end
+    end
+    p1:Stop()
+    p1.SoundId = p2
+    p1:Play()
+    RadioMute_1()
+end)
+script.Parent.ChildAdded:connect(function(p4)
+    wait()
+    local v35 = p4:IsA("Sound")
+    if not v35 then
+        v35 = _G.Mute
+        v35 = 0
+        p4.Volume = v35
+    end
+end)
+local v37 = _G.Mute
+v37 = v2.Icon
+v37.Image = "http://www.roblox.com/asset/?id=4662727525"
+v2.Icon.Image = "http://www.roblox.com/asset/?id=4662727331"
+RadioMute_1()
+v2.MouseButton1Click:connect(function()
+    local v41 = _G.Mute
+    v41 = v2.Icon
+    v41.Image = "http://www.roblox.com/asset/?id=4662727525"
+    _G.Mute = true
+    _G.Mute = false
+    v2.Icon.Image = "http://www.roblox.com/asset/?id=4662727331"
+    local v42 = script
+    local v43, v44, v42 = pairs(v42.Parent:GetChildren())
+    for v50, v47 in v43, v44, v42 do
+        local v48 = v47:IsA("Sound")
+        if not v48 then
+            v48 = _G.Mute
+            if not v48 then
+                v47:Stop()
+            end
+        end
+    end
+    v43 = RadioMute_1
+    v43()
+    v44 = _G
+    local v51 = v44.HalloweenMute
+    if not v51 then
+        v44 = _G
+        v51 = v44.HalloweenMute
+        v51()
+    end
+end)
+wait(0.1)
+local v65 = script
+local v67, v68, v65 = pairs(v65.Parent:GetChildren())
+for v23, v71 in v67, v68, v65 do
+    local v72 = v71:IsA("Sound")
+    if not v72 then
+        v72 = _G.Mute
+        if not v72 then
+            v71:Stop()
+        end
+    end
+end
+
+
+//
+
+local v1 = script
+local v3 = v1.Parent.Game
+v1 = v3.Settings
+v1 = v3.ChangeGameMode
+v1.GameMode.MouseButton1Click:connect(function()
+    v1.Visible = not v1.Visible
+end)
+local v10 = true
+local v11 = game
+local v12 = v11.PlaceId
+v11 = game
+v12 = v11.PlaceId
+if not v3 then
+end
+v10 = false
+v10 = true
+v11 = game.PlaceId
+v12 = false
+v12 = true
+v11 = true
+local v14 = game
+local v95 = v14.PlaceId
+v14 = game
+local v96 = v14.PlaceId
+v11 = false
+v11 = true
+local v97 = true
+local v15 = game
+v14 = v15.PlaceId
+local v98 = true
+v15 = game
+v14 = v15.PlaceId
+local v99 = true
+v15 = game
+v14 = v15.PlaceId
+v15 = game
+v14 = v15.PlaceId
+if not v3 then
+end
+local v100 = false
+local v101 = true
+if not v101 then
+    v14 = 188331334
+else
+    v14 = 142823291
+end
+if not v101 then
+    v15 = 333740520
+else
+    v15 = 335132309
+end
+if not v101 then
+    local v16 = 594100598
+else
+    v16 = 636649648
+end
+v1.Casual.Play.MouseButton1Click:connect(function()
+    local v20 = v10
+    if v20 then
+        v20 = v12
+        if v20 then
+            v20 = v11
+            if not v20 then
+                v20 = game.ReplicatedStorage.Remotes.Extras.ChangeGameMode
+                v20:FireServer("Casual")
+                local v34 = {}
+                v34.MenuModeSwitch = true
+                (game:GetService("TeleportService")):Teleport(v14, game.Players.LocalPlayer, v34)
+                v1.Loading.Visible = true
+                return 
+            end
+            v30 = v1
+            v24 = false
+            v30.Visible = v24
+            return 
+        end
+    end
+end)
+v1.Hardcore.Play.MouseButton1Click:connect(function()
+    local v40 = v10
+    if v40 then
+        v40 = game.ReplicatedStorage.Remotes.Extras.ChangeGameMode
+        v40:FireServer("Hardcore")
+        (game:GetService("TeleportService")):Teleport(v15, game.Players.LocalPlayer)
+        v1.Loading.Visible = true
+        return 
+    end
+    v50 = v1
+    v44 = false
+    v50.Visible = v44
+end)
+local v105 = v1.Assassin.Play
+v105.MouseButton1Click:connect(function()
+    local v58 = v11
+    if v58 then
+        v58 = game.ReplicatedStorage.Remotes.Extras.ChangeGameMode
+        v58:FireServer("Assassin")
+        local v72 = {}
+        v72.MenuModeSwitch = true
+        (game:GetService("TeleportService")):Teleport(v16, game.Players.LocalPlayer, v72)
+        v1.Loading.Visible = true
+        return 
+    end
+    v68 = v1
+    v62 = false
+    v68.Visible = v62
+end)
+if not v12 then
+    v105 = v1.Minigames.Play
+    v105.MouseButton1Click:connect(function()
+        local v78 = v12
+        if v78 then
+            v78 = game.ReplicatedStorage.Remotes.Extras.ChangeGameMode
+            v78:FireServer("Minigames")
+            local v92 = {}
+            v92.MenuModeSwitch = true
+            (game:GetService("TeleportService")):Teleport(450611752, game.Players.LocalPlayer, v92)
+            return 
+        end
+        v82 = false
+        v1.Visible = v82
+    end)
+end
+
+
+//
+
+local v1 = script
+local v3 = v1.Parent.Game
+v1 = game.Players
+local v99 = v1.LocalPlayer
+v1 = {}
+local function GetSyncData_1(p1)
+    local v7 = v1[p1]
+    v7 = v1
+    v7[p1] = game.ReplicatedStorage.GetSyncData:InvokeServer(p1)
+    return v1[p1]
+end
+GetSyncData = GetSyncData_1
+GetSyncData_1 = game.ReplicatedStorage.UpdateSyncedData.OnClientEvent
+GetSyncData_1:connect(function(p2, p3)
+    v1[p2] = p3
+end)
+local function CreateSlots_1()
+    local v21 = 1
+    local v25, v26, v27 = pairs(GetSyncData("Badge"))
+    for v39, v31 in v25, v26, v27 do
+        local v32 = game.MarketplaceService:GetProductInfo(v31)
+        local v38 = script.Slot:Clone()
+        v38.Name = v39
+        v38.Image = "http://www.roblox.com/Thumbs/Asset.ashx?format=png&width=250&height=250&assetId=" .. v31
+        v38.Position = UDim2.new(0, 100 * v21 - 1 % 5, 0, 100 * math.floor(v21 - 1 / 5))
+        v38.Parent = v3.Badges.Items.Container
+        v38.MouseEnter:connect(function()
+            v3.Badges.Description.Text = v32.Description
+        end)
+        v21 = v21 + 1
+    end
+end
+CreateSlots = CreateSlots_1
+CreateSlots_1 = CreateSlots
+CreateSlots_1()
+local function ShowBadges_1(p4)
+    local v68 = v3
+    local v70 = v68.Badges.Items
+    local v72, v73, v70 = pairs(v70.Container:GetChildren())
+    for v69, v68 in v72, v73, v70 do
+        local v74 = game
+        local v82 = v74.MarketplaceService:PlayerOwnsAsset(p4, GetSyncData("Badge")[v68.Name])
+        if not v82 then
+            v82 = Color3.new
+            v74 = 1
+            v68.ImageColor3 = v82(v74, 1, 1)
+        else
+            v85 = Color3.new
+            v68.ImageColor3 = v85(0, 0, 0)
+        end
+    end
+    v73 = v3
+    v72 = v73.Badges
+    v73 = true
+    v72.Visible = v73
+end
+ShowBadges = ShowBadges_1
+ShowBadges_1 = v3.Badges.Close.MouseButton1Click
+ShowBadges_1:connect(function()
+    v3.Badges.Visible = false
+end)
+v3.PlayerMenu.Badges.MouseButton1Click:connect(function()
+    ShowBadges(_G.MenuPlayer)
+end)
+
+
+//
+
+local v4 = game.ReplicatedStorage.Remotes.Extras
+local v6, v4 = v4.GetServerSettings:InvokeServer()
+local v312 = game.Players.LocalPlayer:GetAttribute("Radio")
+local v11 = workspace.GameSettings:GetAttribute("Disguises")
+local v315 = false
+v11 = script.Parent.Game
+local v319 = v11.Settings.VIPSettings
+local v321 = true
+if not v321 then
+    v321 = not (require(game.ReplicatedFirst:WaitForChild("ChinaPolicyService"))):IsActive()
+end
+local v19 = true
+local v21 = game.PlaceId
+v6 = #v6
+local v322 = game
+v21 = v322.PlaceId
+v19 = false
+v19 = true
+if not v19 then
+    v312 = false
+end
+if not v321 then
+    v21 = v11.Settings
+    v322 = UDim2.new
+    v21.Size = v322(0, 150, 0, 50)
+    v21 = v11.Settings.Radio
+    v21.Visible = true
+else
+    v26 = v11.Settings
+    v21 = v26.Radio
+    v26 = false
+    v21.Visible = v26
+    v26 = v11.Settings
+    v21 = v26.VIPSettings
+    v26 = v11.Settings.Radio.Position
+    v21.Position = v26
+end
+local v325 = _G
+v28 = _G
+v26 = v28.Data1v1
+if v26 then
+    v26 = {}
+    v28 = nil
+    v26.Murderer = v28
+    v28 = nil
+    v26.Sheriff = v28
+    v28 = false
+    v26.Started = v28
+end
+v325.Data1v1 = v26
+if not v6 then
+    v325 = v6["1v1ModeAuto"]
+    if not v325 then
+        v325 = v11.Show1v1
+        v26 = true
+        v325.Visible = v26
+        v28 = v11.Show1v1
+        v26 = v28.GameMode
+        v325 = v26.MouseButton1Click
+        v28 = function()
+            game.Players.LocalPlayer.PlayerGui.CustomGames["Mode1v1-Auto"].Visible = not game.Players.LocalPlayer.PlayerGui.CustomGames["Mode1v1-Auto"].Visible
+        end
+        v325:Connect(v28)
+    end
+end
+if not v6 then
+    if not v4 then
+        local v43 = v11.SettingsFrame
+        local v44 = v11.SettingsFrame
+        v26 = v44["1v1Frame"]
+        if not v321 then
+            v44 = v11.Settings
+            v27 = UDim2.new
+            v44.Size = v27(0, 200, 0, 50)
+        else
+            v44 = v11.Settings
+            v49 = UDim2.new
+            v44.Size = v49(0, 150, 0, 50)
+        end
+        v319.Visible = true
+        v319.MouseButton1Click:connect(function()
+            v43.Visible = not v43.Visible
+        end)
+        v54 = v43.Close
+        v54.MouseButton1Click:connect(function()
+            v43.Visible = false
+        end)
+        local function UpdateSettings_1()
+            local v68, v69, v70 = pairs(v43:GetChildren())
+            for v77, v73 in v68, v69, v70 do
+                local v74 = v73:FindFirstChild("Button")
+                if not v74 then
+                    v74 = v6[v73.Name]
+                    v74 = v73.Button
+                    v74.Text = "On"
+                    v74 = v73.Button
+                    v74.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+                    v74 = v73.Button
+                    v74.Text = "Off"
+                    v74 = v73.Button
+                    v74.Style = Enum.ButtonStyle.RobloxRoundButton
+                end
+            end
+            v68 = v26
+            v70 = v6
+            v69 = v70["1v1Mode"]
+            v68.Visible = v69
+        end
+        v54 = pairs
+        local v83, v84, v85 = v54(v43:GetChildren())
+        for v109, v87 in v83, v84, v85 do
+            local v88 = v6[v87.Name]
+            v88 = v87.Button.MouseButton1Click
+            v88:connect(function()
+                v6[v87.Name] = not v6[v87.Name]
+                local v100 = v87.Name
+                local v101 = v6
+                local v104 = v101[v87.Name]
+                if not v104 then
+                    v104 = v6
+                    v101 = false
+                    v104.Assassin = v101
+                    v104 = v6
+                    v101 = false
+                    v104.LobbyMode = v101
+                end
+                UpdateSettings_1()
+                game.ReplicatedStorage.UpdateServerSettings:FireServer(v6)
+            end)
+        end
+        v83 = UpdateSettings_1
+        v83()
+        local function Update1v1State_1()
+            local v112 = _G
+            local v113 = v112.Data1v1
+            local v114 = v113.Murderer
+            if not v114 then
+                v112 = _G
+                v113 = v112.Data1v1
+                v114 = v113.Sheriff
+                if not v114 then
+                    v113 = v26
+                    v114 = v113.Murderer
+                    v113 = false
+                    v114.Visible = v113
+                    v113 = v26
+                    v114 = v113.Sheriff
+                    v113 = false
+                    v114.Visible = v113
+                    v113 = v26
+                    v114 = v113.Confirm
+                    v113 = true
+                    v114.Visible = v113
+                else
+                    v112 = _G
+                    v113 = v112.Data1v1
+                    v114 = v113.Murderer
+                    if not v114 then
+                        v113 = v26
+                        v114 = v113.Murderer
+                        v113 = false
+                        v114.Visible = v113
+                        v113 = v26
+                        v114 = v113.Sheriff
+                        v113 = true
+                        v114.Visible = v113
+                        v113 = v26
+                        v114 = v113.Confirm
+                        v113 = false
+                        v114.Visible = v113
+                    else
+                        v113 = v26
+                        v114 = v113.Murderer
+                        v113 = true
+                        v114.Visible = v113
+                        v113 = v26
+                        v114 = v113.Sheriff
+                        v113 = false
+                        v114.Visible = v113
+                        v113 = v26
+                        v114 = v113.Confirm
+                        v113 = false
+                        v114.Visible = v113
+                    end
+                end
+                v112 = _G
+                v113 = v112.Data1v1
+                v114 = v113.Started
+                if not v114 then
+                    v113 = v26
+                    v114 = v113.Murderer
+                    v113 = false
+                    v114.Visible = v113
+                    v113 = v26
+                    v114 = v113.Sheriff
+                    v113 = false
+                    v114.Visible = v113
+                    v113 = v26
+                    v114 = v113.Confirm
+                    v113 = false
+                    v114.Visible = v113
+                    v113 = v26
+                    v114 = v113.Started
+                    v113 = true
+                    v114.Visible = v113
+                else
+                    v113 = v26
+                    v114 = v113.Started
+                    v113 = false
+                    v114.Visible = v113
+                end
+                v112 = v26
+                v113 = v112.Confirm
+                v114 = v113.Murderer
+                v112 = _G.Data1v1.Murderer
+                v113 = v112 or ""
+                v114.Text = v113
+                v112 = v26
+                v113 = v112.Confirm
+                v114 = v113.Sheriff
+                v112 = _G.Data1v1.Sheriff
+                v113 = v112 or ""
+                v114.Text = v113
+                v112 = v26
+                v113 = v112.Started
+                v114 = v113.Murderer
+                v112 = _G.Data1v1.Murderer
+                v113 = v112 or ""
+                v114.Text = v113
+                v112 = v26
+                v113 = v112.Started
+                v114 = v113.Sheriff
+                v112 = _G.Data1v1.Sheriff
+                v113 = v112 or ""
+                v114.Text = v113
+                v114 = v26
+                v112 = v6
+                v113 = v112["1v1Mode"]
+                v114.Visible = v113
+                return 
+            end
+        end
+        local function Update1v1Players_1()
+            local v125 = v26
+            local v127 = v125.Murderer.List
+            local v129, v130, v127 = pairs(v127.Container:GetChildren())
+            for v126, v125 in v129, v130, v127 do
+                if not v125:IsA("Frame") then
+                    v125:Destroy()
+                end
+            end
+            v129 = pairs
+            v127 = game
+            v130 = v127.Players
+            local v134, v135, v127 = v129(v130:GetPlayers())
+            for v126, v125 in v134, v135, v127 do
+                local v138 = script.Player1v1Frame:Clone()
+                v138.Username.Text = v125.Name
+                v138.Select.MouseButton1Click:connect(function()
+                    _G.Data1v1.Murderer = v125.Name
+                    Update1v1State_1()
+                    Update1v1Players_1()
+                end)
+                v138.Parent = v26.Murderer.List.Container
+            end
+            v127 = v26
+            v135 = v127.Murderer
+            v134 = v135.List
+            v135 = UDim2.new
+            v149 = 46
+            v147 = game
+            v148 = v147.Players
+            v139 = #v148:GetPlayers()
+            v138 = v149 * v139
+            v134.CanvasSize = v135(0, 0, 0, v138)
+            v134 = v26.Sheriff.List
+            v149 = 46
+            v147 = game
+            local v155 = v147.Players:GetPlayers()
+            v139 = #v155
+            v134.CanvasSize = UDim2.new(0, 0, 0, v149 * v139)
+            v134 = pairs
+            local v158 = v26
+            local v159 = v158.Sheriff
+            local v160 = v159.List
+            local v161, v162, v160 = v134(v160.Container:GetChildren())
+            for v159, v158 in v161, v162, v160 do
+                v139 = "Frame"
+                if not v158:IsA(v139) then
+                    v158:Destroy()
+                end
+            end
+            v161 = pairs
+            v160 = game
+            v162 = v160.Players
+            local v165, v166, v160 = v161(v162:GetPlayers())
+            for v159, v158 in v165, v166, v160 do
+                local v167 = v158.Name
+                v155 = _G
+                local v168 = v155.Data1v1
+                v149 = v168.Murderer
+                if v167 ~= v149 then
+                    v149 = script
+                    v167 = v149.Player1v1Frame
+                    local v169 = v167:Clone()
+                    v149 = v169.Username
+                    v168 = v158.Name
+                    v149.Text = v168
+                    v168 = v169.Select
+                    v149 = v168.MouseButton1Click
+                    v155 = function()
+                        _G.Data1v1.Sheriff = v158.Name
+                        Update1v1State_1()
+                    end
+                    v149:connect(v155)
+                    v147 = v26
+                    v168 = v147.Sheriff.List
+                    v169.Parent = v168.Container
+                end
+            end
+            v160 = _G
+            v166 = v160.Data1v1
+            v165 = v166.Murderer
+            if not v165 then
+                v166 = game
+                v165 = v166.Players
+                v158 = _G
+                v159 = v158.Data1v1
+                v160 = v159.Murderer
+                local v177 = v165:FindFirstChild(v160)
+                v177 = _G
+                v166 = {}
+                v166.Murderer = nil
+                v166.Sheriff = nil
+                v166.Started = false
+                v177.Data1v1 = v166
+            end
+            v178 = _G
+            v166 = v178.Data1v1
+            v177 = v166.Sheriff
+            if not v177 then
+                v166 = game
+                v177 = v166.Players
+                v158 = _G
+                v159 = v158.Data1v1
+                v178 = v159.Sheriff
+                local v179 = v177:FindFirstChild(v178)
+                v179 = _G
+                v166 = {}
+                v166.Murderer = nil
+                v166.Sheriff = nil
+                v166.Started = false
+                v179.Data1v1 = v166
+            end
+            v179 = Update1v1State_1
+            v179()
+        end
+        v85 = Update1v1Players_1
+        v85()
+        v87 = v26.Confirm
+        v109 = v87.Start
+        v87 = function()
+            local v198 = _G
+            local v199 = v198.Data1v1
+            local v200 = v199.Murderer
+            if not v200 then
+                v199 = game
+                v200 = v199.Players
+                v198 = _G.Data1v1.Murderer
+                local v203 = v200:FindFirstChild(v198)
+                v199 = _G
+                v203 = v199.Data1v1
+                v199 = nil
+                v203.Murderer = v199
+            else
+                local v204 = _G
+                v199 = v204.Data1v1
+                v203 = v199.Sheriff
+                if not v203 then
+                    v199 = game
+                    v203 = v199.Players
+                    v201 = _G
+                    v202 = v201.Data1v1
+                    v204 = v202.Sheriff
+                    local v205 = v203:FindFirstChild(v204)
+                    v199 = _G
+                    v205 = v199.Data1v1
+                    v199 = nil
+                    v205.Sheriff = v199
+                end
+            end
+            local v206 = _G
+            local v209 = v206.Data1v1
+            v205 = v209.Murderer
+            if not v205 then
+                v206 = _G
+                v209 = v206.Data1v1
+                v205 = v209.Sheriff
+                if not v205 then
+                    v209 = _G
+                    v205 = v209.Data1v1
+                    v209 = true
+                    v205.Started = v209
+                    v206 = game
+                    v209 = v206.ReplicatedStorage
+                    v205 = v209.Start1v1
+                    v201 = _G
+                    v202 = v201.Data1v1
+                    v206 = v202.Murderer
+                    v201 = _G.Data1v1
+                    v202 = v201.Sheriff
+                    v205:FireServer(v206, v202)
+                end
+            end
+            Update1v1State_1()
+        end
+        v109.MouseButton1Click:connect(v87)
+        v109 = v26.Confirm.Cancel
+        v109.MouseButton1Click:connect(function()
+            local v213 = {}
+            v213.Murderer = nil
+            v213.Sheriff = nil
+            _G.Data1v1 = v213
+            game.ReplicatedStorage.Start1v1:FireServer(nil)
+            Update1v1State_1()
+            Update1v1Players_1()
+        end)
+        v109 = game.Players
+        v109.PlayerAdded:Connect(Update1v1Players_1)
+        v109 = game.Players
+        v109.PlayerRemoving:Connect(Update1v1Players_1)
+        v86 = game.ReplicatedStorage
+        v109 = v86.Remotes.CustomGames.Clear1v1
+        v109.OnClientEvent:Connect(function()
+            v11.Waiting.VIP.Waiting.Visible = false
+            v11.Waiting.VIP.Selected.Visible = false
+            local v242 = {}
+            v242.Murderer = nil
+            v242.Sheriff = nil
+            _G.Data1v1 = v242
+            Update1v1Players_1()
+            Update1v1State_1()
+        end)
+    else
+        if v321 then
+            v43 = v11.Settings
+            v26 = UDim2.new
+            UpdateSettings_1 = 0
+            Update1v1State_1 = 100
+            Update1v1Players_1 = 0
+            v43.Size = v26(UpdateSettings_1, Update1v1State_1, Update1v1Players_1, 50)
+        end
+    end
+    v247 = game.ReplicatedStorage.Remotes.CustomGames.Cancelled1v1
+    v43 = v247.OnClientEvent
+    v43:Connect(function()
+        v11.Waiting.VIP.Waiting.Visible = false
+        v11.Waiting.VIP.Selected.Visible = false
+    end)
+    v247 = game.ReplicatedStorage.Remotes.CustomGames.Started1v1
+    v247.OnClientEvent:Connect(function(p1, p2)
+        v11.Waiting.VIP.Waiting.Visible = false
+        v11.Waiting.VIP.Selected.Visible = true
+        v11.Waiting.VIP.Selected.Murderer.Text = p1
+        v11.Waiting.VIP.Selected.Sheriff.Text = p2
+    end)
+    v247 = game.ReplicatedStorage.Remotes.CustomGames.Waiting1v1
+    v247.OnClientEvent:Connect(function()
+        v11.Waiting.VIP.Waiting.Visible = true
+        v11.Waiting.VIP.Waiting.TextLabel.Text = "Server set to 1v1 Mode. Waiting for owner to select players..."
+    end)
+    v247 = game.ReplicatedStorage.Remotes.CustomGames.Waiting1v1Queue
+    v247.OnClientEvent:Connect(function()
+        v11.Waiting.VIP.Waiting.Visible = true
+        v11.Waiting.VIP.Waiting.TextLabel.Text = "Server set to 1v1 Mode. Waiting for two players to join queue..."
+    end)
+    return 
+end
+
+
+//
+
+local v3 = game:GetService("ContentProvider")
+local v4 = {}
+local v5 = "http://www.roblox.com/Thumbs/Avatar.ashx?x="
+local v10 = v5 .. 250 .. "&y=" .. 250 .. "&Format=Png&userId="
+v5 = "http://www.roblox.com/Thumbs/Avatar.ashx?x=" .. 250 .. "&y=" .. 250 .. "&Format=Png&username="
+local v12 = Instance.new("BindableFunction", game.ReplicatedStorage)
+v12.Name = "GetPlayerImage"
+local function FindImage_1(p1)
+    local v17, v18, v19 = pairs(v4)
+    for v25, v21 in v17, v18, v19 do
+        local v20 = v21.Name
+        v20 = v21.userId
+        local v24 = tostring(p1)
+        if v20 == v24 then
+            v20 = v21.Image
+            v24 = v25
+            return v20, v24
+        end
+    end
+    if v20 ~= p1 then
+        v17 = tonumber
+        v18 = p1
+        local v26 = v17(v18)
+        if not v26 then
+            v19 = p1
+            v26 = v10 .. v19
+            return v26, nil
+        end
+        v19 = p1
+        return v5 .. v19, nil
+    end
+end
+v12.OnInvoke = FindImage_1
+local function LoadPlayerImage_1(p2)
+    local v36 = p2:IsA("Player")
+    if not v36 then
+        local v39 = p2.Name:find("Guest ")
+        if not v39 then
+            v39 = v10
+            local v40 = "1"
+            v36 = v39 .. v40
+            if v36 then
+                v39 = p2.userId
+                v40 = 1
+                if v40 > v39 then
+                    v39 = v10
+                    v40 = "1"
+                    v36 = v39 .. v40
+                    if v36 then
+                        v39 = v10
+                        v40 = p2.userId
+                        v36 = v39 .. v40
+                    end
+                    v39 = v3
+                    v39:Preload(v36)
+                    v40 = v36
+                    local v51 = {}
+                    v51.Name = p2.Name
+                    v51.userId = tostring(p2.userId)
+                    v51.RawImage = v36
+                    v51.Image = v40 .. "&bust=" .. math.floor(tick())
+                    v40 = table.insert
+                    v40(v4, v51)
+                    return 
+                end
+            end
+        end
+    end
+end
+game.Players.ChildAdded:connect(LoadPlayerImage_1)
+game.Players.ChildRemoved:connect(function(p3)
+    local v58, v59 = FindImage_1(p3.Name)
+    if not v59 then
+        table.remove(v4, v59)
+    end
+end)
+local v64 = game
+local v65, v66, v64 = pairs(v64.Players:GetPlayers())
+for v70, v69 in v65, v66, v64 do
+    LoadPlayerImage_1(v69)
+end
+
+
+//
+
+local v15 = 0
+_G.Gifts = v15
+v15 = 1471244400
+_G.OfferEndTime = v15
+v15 = _G.OfferEndTime
+local v17 = os.time()
+v15 = _G
+local v18 = 0
+if v18 <= v15 - v17 then
+    v17 = false
+end
+v15.ShowItemPack = true
+v15 = _G
+v15.CanJump = true
+v15 = true
+v18 = game
+local v89 = v18.PlaceId
+if not function()
+    local v3 = _G
+    local v7, v8, v3 = pairs(v3.PlayerData.Weapons.Owned)
+    for v11, v10 in v7, v8, v3 do
+        _G.Gifts = v10
+        return 
+    end
+end then
+end
+local v90 = game
+local v91 = v90.PlaceId
+v15 = false
+v15 = true
+while true do
+    v91 = _G
+    v90 = game.ReplicatedStorage.Remotes.Extras.GetData2
+    v91.PlayerData = v90:InvokeServer()
+    v91 = wait
+    v91(0.1)
+    local v25 = _G.PlayerData
+end
+v25 = {}
+local function UpdateData_1()
+    local v27 = _G
+    local v31, v32, v27 = pairs(v27.PlayerData.Weapons.Owned)
+    for v35, v34 in v31, v32, v27 do
+        _G.Gifts = v34
+    end
+    local v45 = v15
+    if v45 then
+        v45 = pairs
+        v34 = _G
+        v35 = v34.PlayerData
+        v27 = v35.Toys
+        v31 = v27.Owned
+        local v36, v37, v32 = v45(v31)
+        for v27, v35 in v36, v37, v32 do
+            v33 = v25
+            v34 = v33[v35]
+            v33 = _G.PlayerData.Emotes.Owned
+            v34 = table.insert
+            v34(v33, v35)
+            v25[v35] = true
+        end
+    end
+end
+v19 = game
+v20 = v19.ReplicatedStorage
+v21 = v20.UpdateData2
+v22 = v21.OnClientEvent
+v20 = function(p1, p2)
+    _G.PlayerData = p1
+    v25 = {}
+    UpdateData_1()
+    game.ReplicatedStorage.UpdateDataClient:Fire(p2, p1)
+end
+v22:connect(v20)
+v19 = game
+v21 = v19.ReplicatedStorage.UpdateDataClient
+v21.Event:connect(UpdateData_1)
+v19 = game
+v21 = v19.ReplicatedStorage.UpdateData3
+v21.OnClientEvent:connect(function(p3)
+    _G.PlayerData = p3
+    v25 = {}
+    UpdateData_1()
+end)
+UpdateData_1()
+local v63 = _G
+v21 = function()
+    UpdateData_1()
+end
+v63.UpdateEmotes = v21
+local v95 = {}
+v21 = {}
+v95.Frames = v21
+v21 = {}
+v95.FrameNames = v21
+v21 = {}
+v95.OpenFunctions = v21
+v21 = function(p4, p5)
+    local v67 = type(p4)
+    v67 = pairs
+    local v68 = _G
+    local v69 = v68.Windows
+    local v71, v72, v73 = v67(v69.Frames)
+    for v69, v68 in v71, v72, v73 do
+        if v69 == p4 then
+            v69.Visible = p5
+            v69.Visible = not v69.Visible
+        else
+            v75 = false
+            v69.Visible = v75
+        end
+    end
+    return 
+    v72 = p4
+    v71 = type
+    local v76 = v71(v72)
+    v76 = pairs
+    local v83 = _G.Windows
+    local v78, v79, v73 = v76(v83.FrameNames)
+    if v83 == p4 then
+        for v69, v68 in v78, v79, v73 do
+            v68.Visible = p5
+            v74 = v68.Visible
+            v75 = not v74
+            v68.Visible = v75
+            v75 = v68.Visible
+            if not v75 then
+                local v80 = v63
+                v74 = v80.OpenFunctions
+                v75 = v74[v69]
+                if not v75 then
+                    v80 = v63
+                    v74 = v80.OpenFunctions
+                    v75 = v74[v69]
+                    v75()
+                    v68.Visible = false
+                end
+            end
+        end
+        return 
+    end
+end
+v95.ViewFrame = v21
+v21 = _G
+v21.Windows = v95
+
+
+//
+
+local v15 = 0
+_G.Gifts = v15
+v15 = 1471244400
+_G.OfferEndTime = v15
+v15 = _G.OfferEndTime
+local v17 = os.time()
+v15 = _G
+local v18 = 0
+if v18 <= v15 - v17 then
+    v17 = false
+end
+v15.ShowItemPack = true
+v15 = _G
+v15.CanJump = true
+v15 = true
+v18 = game
+local v89 = v18.PlaceId
+if not function()
+    local v3 = _G
+    local v7, v8, v3 = pairs(v3.PlayerData.Weapons.Owned)
+    for v11, v10 in v7, v8, v3 do
+        _G.Gifts = v10
+        return 
+    end
+end then
+end
+local v90 = game
+local v91 = v90.PlaceId
+v15 = false
+v15 = true
+while true do
+    v91 = _G
+    v90 = game.ReplicatedStorage.Remotes.Extras.GetData2
+    v91.PlayerData = v90:InvokeServer()
+    v91 = wait
+    v91(0.1)
+    local v25 = _G.PlayerData
+end
+v25 = {}
+local function UpdateData_1()
+    local v27 = _G
+    local v31, v32, v27 = pairs(v27.PlayerData.Weapons.Owned)
+    for v35, v34 in v31, v32, v27 do
+        _G.Gifts = v34
+    end
+    local v45 = v15
+    if v45 then
+        v45 = pairs
+        v34 = _G
+        v35 = v34.PlayerData
+        v27 = v35.Toys
+        v31 = v27.Owned
+        local v36, v37, v32 = v45(v31)
+        for v27, v35 in v36, v37, v32 do
+            v33 = v25
+            v34 = v33[v35]
+            v33 = _G.PlayerData.Emotes.Owned
+            v34 = table.insert
+            v34(v33, v35)
+            v25[v35] = true
+        end
+    end
+end
+v19 = game
+v20 = v19.ReplicatedStorage
+v21 = v20.UpdateData2
+v22 = v21.OnClientEvent
+v20 = function(p1, p2)
+    _G.PlayerData = p1
+    v25 = {}
+    UpdateData_1()
+    game.ReplicatedStorage.UpdateDataClient:Fire(p2, p1)
+end
+v22:connect(v20)
+v19 = game
+v21 = v19.ReplicatedStorage.UpdateDataClient
+v21.Event:connect(UpdateData_1)
+v19 = game
+v21 = v19.ReplicatedStorage.UpdateData3
+v21.OnClientEvent:connect(function(p3)
+    _G.PlayerData = p3
+    v25 = {}
+    UpdateData_1()
+end)
+UpdateData_1()
+local v63 = _G
+v21 = function()
+    UpdateData_1()
+end
+v63.UpdateEmotes = v21
+local v95 = {}
+v21 = {}
+v95.Frames = v21
+v21 = {}
+v95.FrameNames = v21
+v21 = {}
+v95.OpenFunctions = v21
+v21 = function(p4, p5)
+    local v67 = type(p4)
+    v67 = pairs
+    local v68 = _G
+    local v69 = v68.Windows
+    local v71, v72, v73 = v67(v69.Frames)
+    for v69, v68 in v71, v72, v73 do
+        if v69 == p4 then
+            v69.Visible = p5
+            v69.Visible = not v69.Visible
+        else
+            v75 = false
+            v69.Visible = v75
+        end
+    end
+    return 
+    v72 = p4
+    v71 = type
+    local v76 = v71(v72)
+    v76 = pairs
+    local v83 = _G.Windows
+    local v78, v79, v73 = v76(v83.FrameNames)
+    if v83 == p4 then
+        for v69, v68 in v78, v79, v73 do
+            v68.Visible = p5
+            v74 = v68.Visible
+            v75 = not v74
+            v68.Visible = v75
+            v75 = v68.Visible
+            if not v75 then
+                local v80 = v63
+                v74 = v80.OpenFunctions
+                v75 = v74[v69]
+                if not v75 then
+                    v80 = v63
+                    v74 = v80.OpenFunctions
+                    v75 = v74[v69]
+                    v75()
+                    v68.Visible = false
+                end
+            end
+        end
+        return 
+    end
+end
+v95.ViewFrame = v21
+v21 = _G
+v21.Windows = v95
+
+
+//
+
+game.Workspace.ChildAdded:connect(function(p1)
+    local v4 = p1.Name
+    v4 = p1:WaitForChild("HandleLink").Value
+    local v8 = v4:Clone()
+    local v11 = p1:WaitForChild("BladePosition")
+    v8.CFrame = v11.CFrame
+    local v13 = v8:FindFirstChild("VH")
+    if not v13 then
+        v13 = 1
+        v8.Transparency = v13
+        v13 = v8.VH
+        v11 = 0
+        v13.Transparency = v11
+    else
+        v13 = 0
+        v8.Transparency = v13
+    end
+    v8.Anchored = true
+    v8.Parent = p1
+    v8.Name = "KnifeVisual"
+end)
+local v18 = time()
+(game:GetService("RunService")):BindToRenderStep("ThrowingKnifeVisualizer", Enum.RenderPriority.Last.Value, function(p2)
+    local v25 = game
+    local v27, v28, v25 = pairs(v25.Workspace:GetChildren())
+    for v82, v30 in v27, v28, v25 do
+        local v29 = v30.Name
+        local v32 = v30:FindFirstChild("KnifeVisual")
+        if not v32 then
+            v32 = v30.BladePosition
+            local v87 = CFrame.new(v30.KnifeVisual.Position, v30.BladePosition.Position).lookVector
+            local v90 = v30.KnifeVisual.Position - v30.BladePosition.Position.magnitude
+            local v47 = v30.Vector3Value
+            local v95 = p2 / 0.016666666666667
+            local v97 = v30.KnifeVisual.CFrame.p + v47.Value * 1.6 * v95
+            local v49, v42, v45, v48, v47, v50, v51, v52, v53, v54, v55, v56 = (v30.KnifeVisual.CFrame * CFrame.Angles(-12.566370614359 * p2, 0, 0)):components()
+            local v73 = CFrame.new(v97.X, v97.Y, v97.Z, v95, v47, v50, v51, v52, v53, v54, v55, v56)
+            v30.KnifeVisual.CFrame = v73
+            local v76 = v30.KnifeVisual:FindFirstChild("VH")
+            if not v76 then
+                v76.CFrame = v73 * v76:FindFirstChild("ManualWeld").C0
+                print("cut")
+            end
+        end
+    end
+end)
+
+//
+
+while true do
+    wait()
+    local v3 = _G.PlayerData
+end
+v3 = wait
+v2 = 0.2
+v3(v2)
+local v7 = require(script.Weld)
+local v10 = game:GetService("TweenService")
+local v17 = TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0)
+local v18
+local v25 = (require(game.ReplicatedFirst:WaitForChild("ChinaPolicyService"))):IsActive()
+game:GetService("RunService").Heartbeat:connect(function(p1)
+    v18 = nil
+    local v31 = game
+    local v33, v34, v31 = pairs(v31.Workspace:GetChildren())
+    for v39, v37 in v33, v34, v31 do
+        local v38 = v37:FindFirstChild("CoinContainer")
+        if not v38 then
+            v38 = v37.CoinContainer
+            v18 = v38
+        end
+    end
+    v33 = v18
+    return 
+    v34 = v18
+    v33 = v34.Parent
+    v33 = nil
+    v18 = v33
+    return 
+    v33 = pairs
+    v34 = v18
+    local v40, v41, v31 = v33(v34:GetChildren())
+    for v39, v37 in v40, v41, v31 do
+        local v43 = v37:FindFirstChild("Coin")
+        local v44 = v37.Name
+        local v46 = v37:FindFirstChild("BagFull")
+        v46 = _G.CoinBagFull
+        v46 = nil
+        v46 = game.ReplicatedStorage.SnowTokenObjects.SnowToken:Clone()
+        v46.Name = "Coin"
+        v7(v37)
+        v46.CFrame = v37.CFrame
+        v46.Parent = v37
+        local v114 = v37.Name
+        local v54 = v37:FindFirstChild("BagFull")
+        local v56 = v37:FindFirstChild("SpinningVisual")
+        local v57 = v37:FindFirstChild("SpinComplete")
+        local v59 = v37:FindFirstChild("BagFull")
+        local v60
+        local v61 = game
+        v60 = v61.ReplicatedStorage.SnowTokenObjects.SpinningVisual:Clone()
+        v60.Name = "SpinningVisual"
+        v7(v37)
+        v60.CFrame = v37.CFrame
+        v60.Parent = v37
+        spawn(function()
+            local v70, v71, v72 = pairs(v60:GetDescendants())
+            for v87, v75 in v70, v71, v72 do
+                local v76 = v75:IsA("BasePart")
+                if not v75:IsA("Decal") then
+                    local v80 = v75:IsA("MeshPart")
+                    if not v80 then
+                        v80 = ""
+                        v75.TextureID = v80
+                    end
+                    local v83 = {}
+                    v83.Transparency = 1
+                    (v10:Create(v75, v17, v83)):Play()
+                end
+            end
+            v70 = wait
+            if v76 then
+                v71 = 0.2
+                v70(v71)
+                local v90 = Instance.new("Model")
+                v90.Name = "SpinComplete"
+                v90.Parent = v37
+                return 
+            end
+        end)
+        local v95 = v37:FindFirstChild("RoundEnd")
+        local v97 = v37:FindFirstChild("BagFull")
+        if not v97 then
+            v60 = 0
+        else
+            v60 = 0.2
+        end
+        if v59 then
+            v61 = Vector3.new
+            v97 = v56.CFrame + v61(0, v60, 0) * CFrame.Angles(0.5235987755983, 0, 0)
+            v56.CFrame = v97
+        end
+        if not v43 then
+            v43:Destroy()
+            if not v43 then
+                v57 = v43.CFrame
+                v59 = CFrame.Angles
+                v97 = 1.9198621771938
+                v97 = 0
+                v103 = 0
+                v56 = v57 * v59(v97 * p1, v97, v103)
+                v43.CFrame = v56
+            end
+        end
+    end
+    return 
+    if v95 then
+    end
+    if v43 then
+        if not v56 then
+        end
+        if not v43 then
+        end
+        if v46 then
+            if v57 then
+            end
+            if v56 then
+            end
+            if v46 then
+                if not v54 then
+                end
+            end
+        end
+    end
+end)
+
+//
+
+local v3 = game:GetService("TweenService")
+_G.LastRound = -1
+_G.PlayerIcons = {}
+local function UpdateIcons_1()
+    local v8 = game
+    local v10, v11, v8 = pairs(v8.Players:GetPlayers())
+    for v29, v14 in v10, v11, v8 do
+        local v15 = _G.PlayerIcons[v14.Name]
+        v15 = spawn
+        v15(function()
+            _G.PlayerIcons[v14.Name] = game.Players:GetUserThumbnailAsync(math.abs(v14.userId), Enum.ThumbnailType.AvatarBust, Enum.ThumbnailSize.Size352x352)
+        end)
+    end
+end
+UpdateIcons_1()
+game.Players.PlayerAdded:connect(UpdateIcons_1)
+game.Players.PlayerRemoving:connect(UpdateIcons_1)
+local v43 = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
+local v51 = TweenInfo.new(0.3, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
+local v54 = game.ReplicatedStorage
+local v57 = require(v54.Modules.FadeModule)
+local function PlayTweens_1(p1)
+    local v62, v63, v64 = pairs(p1)
+    for v67, v66 in v62, v63, v64 do
+        v66:Play()
+    end
+end
+local function PlayVictoryScreen_1(p2)
+    local v71 = script.Victory:Clone()
+    if v71:FindFirstChild(p2 .. "Victory") then
+        local v77 = v71:FindFirstChild(p2)
+    end
+    v77.Visible = true
+    v71.Parent = game.Players.LocalPlayer.PlayerGui
+    wait(0.05)
+    local v80 = {}
+    local v83 = {}
+    v83.Size = UDim2.new(1, 0, 1, 0)
+    local v140 = {}
+    v140.Position = UDim2.new(0.975, 0, 0.5, 0)
+    v140.Rotation = 0
+    local v142 = {}
+    v142.Position = UDim2.new(0.025, 0, 0.5, 0)
+    v142.Rotation = 0
+    v80[1] = v3:Create(v77.Container, v43, v83)
+    v80[2] = v3:Create(v77.KnifeRight, v43, v140)
+    v80[3] = v3:Create(v77.KnifeLeft, v43, v142)
+    local v111, v112, v109 = pairs(v80)
+    for v110, v114 in v111, v112, v109 do
+        v114:Play()
+    end
+    v111 = 8
+    wait(v111)
+    local v115 = {}
+    v109 = v77
+    v110 = v43
+    v114 = {}
+    v114.Position = UDim2.new(0.5, 0, 0, -v77.Container.AbsoluteSize.Y * 2 - 10)
+    v115[2] = v112
+    v115[2] = v3:Create(v109, v110, v114)
+    v127 = pairs
+    v112 = v115
+    local v130, v131, v128 = v127(v112)
+    for v129, v132 in v130, v131, v128 do
+        v132:Play()
+    end
+end
+v54 = {}
+local v289 = {}
+local v148 = true
+v289.Time = v148
+v148 = true
+v289.MurdererDied = v148
+v148 = true
+v289.MurdererLeft = v148
+v148 = true
+v289.InnocentsEscaped = v148
+v54.Innocent = v289
+local v290 = {}
+v148 = true
+v290.Time = v148
+v148 = true
+v290.MurdererDied = v148
+v148 = true
+v290.MurdererLeft = v148
+v54.Hero = v290
+local v291 = {}
+v148 = true
+v291.MurdererDied = v148
+v148 = true
+v291.MurdererLeft = v148
+v148 = true
+v291.SheriffWin = v148
+v54.Sheriff = v291
+local v292 = {}
+v148 = true
+v292.MurdererWin = v148
+v54.Murderer = v292
+local v293 = {}
+v148 = true
+v293.ZombiesWin = v148
+v54.Zombie = v293
+local v294 = {}
+v148 = true
+v294.SurvivorsWin = v148
+v148 = true
+v294.Time = v148
+v54.Survivor = v294
+local function PlayFade_1()
+    local v152 = script.DeathFade:Clone()
+    v152.Parent = game.Players.LocalPlayer.PlayerGui
+    game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false)
+    local v157 = {}
+    local v160 = {}
+    v160.BackgroundTransparency = 0
+    v157[1] = v3:Create(v152.Fade, v51, v160)
+    v162 = pairs
+    v163 = v157
+    local v165, v166, v164 = v162(v163)
+    for v168, v167 in v165, v166, v164 do
+        v167:Play()
+    end
+end
+v148 = true
+local v176 = game.PlaceId
+local v295 = -v3
+v176 = game.PlaceId
+v148 = false
+v148 = true
+local function PlayEndMusic_1(p3)
+    local v178 = p3.Character
+    v178 = p3.Character
+    local v180 = v178:FindFirstChild("Radio")
+    if not v180 then
+        local v181 = p3.Character
+        v180 = v181.Radio
+        local v183 = v180:FindFirstChild("Sound")
+        if not v183 then
+            v181 = p3.Character.Radio.Sound
+            v183 = v181.IsPlaying
+            return 
+        end
+    end
+    local v186 = game
+    v184 = v186.Players
+    v185 = v184.LocalPlayer
+    v181 = v185.PlayerGui
+    v183 = v181.MainGUI
+    v181 = v148
+    if not v181 then
+        v186 = game.Players
+        v184 = v186.LocalPlayer
+        v185 = v184.PlayerGui
+        v181 = v185.ScaryMode
+        v183 = v181.Music
+    end
+    v181 = {}
+    v185 = "http://www.roblox.com/asset/?id=320394794"
+    v184 = "http://www.roblox.com/asset/?id=320396686"
+    local v208 = "http://www.roblox.com/asset/?id=320397765"
+    v187 = "http://www.roblox.com/asset/?id=320403652"
+    v181[1] = v185
+    v181[2] = v184
+    v181[3] = v208
+    v181[4] = v187
+    v185 = v148
+    if not v185 then
+        v185 = {}
+        v184 = "rbxassetid://1836013831"
+        v208 = "rbxassetid://1838605064"
+        v187 = "rbxassetid://1841274964"
+        v185[1] = v184
+        v185[2] = v208
+        v185[3] = v187
+        v181 = v185
+        v184 = _G
+        v185 = v184.HalloweenMusic
+        v184 = "Murderer"
+        v208 = "Stop"
+        v185(v184, v208)
+        _G.HalloweenMusic("Escape", "Stop")
+        _G.HalloweenMusic("Lobby", "Stop")
+    end
+    local v197 = Instance.new("Sound", v183)
+    v187 = 1
+    v197.SoundId = v181[math.random(v187, #v181)]
+    v197.Volume = 0.4
+    v197.Looped = false
+    v197.PlayOnRemove = false
+    Instance.new("NumberValue", v197).Value = v197.Volume
+    v197:Play()
+    game.Debris:AddItem(v197)
+end
+game.ReplicatedStorage.Remotes.Gameplay.VictoryScreen.OnClientEvent:connect(function(p4, p5, p6, p7)
+    print(p4, p5, p6, p7)
+    wait(0.5)
+    local v229 = game
+    PlayEndMusic_1(v229.Players.LocalPlayer)
+    PlayVictoryScreen_1(p7)
+    return 
+    local v254 = v54
+    local v234 = v254[p5]
+    local v235 = v234[p6]
+    if not v235 then
+        if not p4 then
+            v235 = wait
+            v234 = 0.5
+            v235(v234)
+            v229 = game
+            v254 = v229.Players
+            PlayEndMusic_1(v254.LocalPlayer)
+            PlayVictoryScreen_1(p5)
+            return 
+        end
+    end
+    if not p7 then
+        v229 = game.Players
+        v254 = v229.LocalPlayer
+        local v241 = v254.Character
+        local v242 = false
+        v242 = true
+        v254 = v57
+        v241 = v254.FadeToWinner
+        v254 = p7
+        v229 = v242
+        v241(v254, v229)
+        PlayEndMusic_1(p7)
+        return 
+    end
+    if not p4 then
+        v242 = print
+        v242("Times Up!")
+        wait(0.5)
+        local v249 = v148
+        if not v249 then
+            local v250 = "InnocentsEscaped"
+        else
+            v250 = "TimesUp"
+        end
+        PlayVictoryScreen_1(v250)
+        v249 = game.Players
+        PlayEndMusic_1(v249.LocalPlayer)
+    end
+end)
+local v302 = game.ReplicatedStorage.Remotes.Gameplay.RoundEndFade
+v302.OnClientEvent:connect(function(p8)
+    v57.PlayCameraFade("In")
+    if p8 then
+        wait(0.4)
+        v57.CameraFadeToLocalPlayer("Out")
+        _G.ShowResults()
+    end
+end)
+while true do
+    wait()
+    v302 = _G
+    local v268 = v302.Database
+end
+v268 = require
+local v270 = v268(game.ReplicatedStorage.Modules.ScoreboardModule)
+_G.ShowResults = function(p9)
+    local v272 = game
+    local v277 = v272.ReplicatedStorage.Remotes.Gameplay.GetLastRoundRewards:InvokeServer()
+    return 
+    local v279 = v277.RoundCount
+    local v280 = _G
+    local v281 = v280.LastRound
+    if v279 ~= v281 then
+        v272 = game.Players
+        v280 = v272.LocalPlayer
+        v281 = v280.PlayerGui
+        v279 = v281.Scoreboard
+        v280 = v270
+        v281 = v280.DisplayScoreboard
+        v280 = v277
+        v281(v280)
+    end
+end
+
+//
+
+local v1 = {}
+v1.__index = v1
+v1.new = function()
+    local v7 = setmetatable({}, v1)
+    v7.cameras = require(script:WaitForChild("CameraModule"))
+    v7.controls = require(script:WaitForChild("ControlModule"))
+    return v7
+end
+v1.GetCameras = function(p1)
+    return p1.cameras
+end
+v1.GetControls = function(p2)
+    return p2.controls
+end
+local function GetClickToMoveController_1(p3)
+    return p3.controls:GetClickToMoveController()
+end
+v1.GetClickToMoveController = GetClickToMoveController_1
+GetClickToMoveController_1 = v1.new
+return GetClickToMoveController_1()
+
+//
+
+local v5 = require(script.Parent:WaitForChild("PlayerModule"))
+
+//
+
+while true do
+    wait()
+    local v3 = _G.Database
+end
+v3 = require
+v2 = game.ReplicatedStorage.Modules.BoxModule
+local v7 = v3(v2)
+local v10 = require(game.ReplicatedStorage.Modules.ShopModule)
+local v13 = require(game.ReplicatedStorage.Modules.XboxModule)
+local function BindXbox_1()
+    v13.Bind("UnboxA", Enum.KeyCode.ButtonA, function()
+    end)
+    v13.Bind("UnboxB", Enum.KeyCode.ButtonB, function()
+    end)
+    v13.Bind("UnboxX", Enum.KeyCode.ButtonX, function()
+    end)
+end
+local function UnbindXbox_1()
+    v13.Unbind("UnboxA")
+    v13.Unbind("UnboxB")
+    v13.Unbind("UnboxX")
+end
+game.ReplicatedStorage.Remotes.Shop.BoxController.Event:connect(function(p1, p2)
+    BindXbox_1()
+    game:GetService("GuiService").SelectedObject = nil
+    v7.OpenBox(p1, p2)
+    _G.NewItem(p2, "You Got...", _G.Windows.FrameNames.Halloween2022, "Weapons")
+    _G.NewItem(p2, "You Got...", v10.GUI.ShopFrame, "Weapons")
+    v13.Unbind("UnboxA")
+    v13.Unbind("UnboxB")
+    v13.Unbind("UnboxX")
+    game.ReplicatedStorage.UpdateSalvageClient:Fire()
+    game.ReplicatedStorage.Remotes.Shop.CrateComplete:FireServer(p2)
+end)
+game.ReplicatedStorage.Remotes.Shop.EggController.Event:connect(function(p3, p4)
+    BindXbox_1()
+    v7.HatchEgg(p3, p4)
+    _G.NewItem(p4, "You Got...", v10.GUI.ShopFrame, "Pets")
+    v13.Unbind("UnboxA")
+    v13.Unbind("UnboxB")
+    v13.Unbind("UnboxX")
+    game.ReplicatedStorage.Remotes.Shop.CrateComplete:FireServer(p4)
+end)
+
+
+//
+
+local v3 = game.Players.LocalPlayer
+local v9 = ((v3.PlayerGui:WaitForChild("CustomGames")):WaitForChild("Mode1v1-Auto")):WaitForChild("Main")
+local v10 = v9.QueueFrame.Queue
+v3 = v10.Container
+v10 = false
+local v12 = game.ReplicatedStorage
+local v15 = v12.Remotes.CustomGames.Get1v1Queue:InvokeServer()
+v12 = game.ReplicatedStorage.Modules
+local v17 = require(v12.EloRankInfo)
+local v18 = v17.RankIcons
+v12 = v17.RankOrder
+local function UpdateQueue_1(p1)
+    local v20 = p1
+    if v20 then
+        v20 = v15
+        if v20 then
+            v20 = {}
+        end
+    end
+    v15 = v20
+    v3:ClearAllChildren()
+    script.UIListLayout:Clone().Parent = v3
+    local v24, v25, v26 = pairs(v15)
+    for v34, v28 in v24, v25, v26 do
+        local v27 = v28.Player
+        v27 = script.QueuePlayer
+        local v30 = v27:Clone()
+        v30.PlayerName.Text = v28.Player.Name
+        v30.RankIcon.Icon.Image = v18[v28.Rank]
+        v30.LayoutOrder = v34
+        v30.Parent = v3
+    end
+    v24 = true
+    v26 = v12
+    v30 = _G
+    v28 = v30.PlayerData
+    v34 = v28.TestRank
+    v25 = v26[v34]
+    v26 = 4
+    if v26 < v25 then
+        v28 = game
+        v34 = v28.Players
+        v26 = v34.LocalPlayer
+        v25 = v26.userId
+        v24 = false
+        v24 = true
+    end
+    v34 = v9
+    v26 = v34.QueueFrame
+    v25 = v26.Gold
+    v26 = v24
+    if not v26 then
+        v28 = game
+        v34 = v28.PlaceId
+        v26 = false
+        v26 = true
+    end
+    v25.Visible = v26
+end
+game.ReplicatedStorage.Remotes.CustomGames.Update1v1Queue.OnClientEvent:Connect(UpdateQueue_1)
+game.ReplicatedStorage.Remotes.CustomGames.Started1v1.OnClientEvent:Connect(function()
+    local v52 = false
+    local v55, v56, v57 = pairs(v15)
+    for v64, v59 in v55, v56, v57 do
+        local v58 = v59.Player
+        v58 = v59.Player.Name
+        if v58 == game.Players.LocalPlayer.Name then
+            v52 = true
+        end
+    end
+    if v52 then
+        v55 = false
+        v10 = v55
+        v57 = v9
+        v56 = v57.QueueFrame
+        v55 = v56.Leave
+        v56 = false
+        v55.Visible = v56
+        v57 = v9
+        v56 = v57.QueueFrame
+        v55 = v56.Join
+        v56 = true
+        v55.Visible = v56
+    end
+end)
+v9.QueueFrame.Join.MouseButton1Click:connect(function()
+    v10 = true
+    v9.QueueFrame.Join.Visible = false
+    v9.QueueFrame.Leave.Visible = true
+    game.ReplicatedStorage.Remotes.CustomGames.Join1v1Queue:FireServer()
+end)
+v9.QueueFrame.Leave.MouseButton1Click:connect(function()
+    v10 = false
+    v9.QueueFrame.Leave.Visible = false
+    v9.QueueFrame.Join.Visible = true
+    game.ReplicatedStorage.Remotes.CustomGames.Leave1v1Queue:FireServer()
+end)
+game.ReplicatedStorage.Remotes.CustomGames.Display1v1Queue.OnClientEvent:Connect(function()
+    v9.Parent.Visible = true
+end)
+game.ReplicatedStorage.Remotes.CustomGames.Hide1v1Queue.OnClientEvent:Connect(function()
+end)
+v9.QueueFrame.Gold.MouseButton1Click:connect(function()
+    game.ReplicatedStorage.Remotes.CustomGames.JoinGoldServer:FireServer()
+    v9.Visible = false
+end)
+UpdateQueue_1()
+
+//
+
+local v3 = game.ReplicatedStorage.TrapSystem
+v3.TrapHitLocal.OnClientEvent:Connect(function(p1, p2)
+    local v5 = p2.Character
+    local v6 = {}
+    local v7 = p1.TrapVisual
+    v6[2] = v7
+    v6[2] = v7.CFrame:GetComponents()
+    v10 = v5.HumanoidRootPart
+    v9 = v10.Position.X
+    v6[1] = v9
+    v10 = p1.TrapVisual
+    v9 = v10.Position.Y
+    v6[2] = v9
+    v10 = v5.HumanoidRootPart
+    v9 = v10.Position.Z
+    v6[3] = v9
+    v9 = p1.TrapVisual
+    v11 = v6
+    v10 = unpack
+    v9.CFrame = CFrame.new(v10(v11))
+    v9 = p1.TrapVisual
+    v9.Transparency = 0
+    v9 = v5.Humanoid
+    v9.WalkSpeed = 0.01
+    v9 = v5.Humanoid
+    v9.JumpPower = 1
+    v9 = script.TrapGUI
+    local v13 = v9:Clone()
+    v13.Parent = game.Players.LocalPlayer.PlayerGui
+    v13.Main.Progress.Bar.TweenScript.Disabled = false
+    v3.TrapReplicate:FireServer(p1, p1.TrapVisual.CFrame)
+    wait(4)
+    v5.Humanoid.WalkSpeed = 16
+    v5.Humanoid.JumpPower = 50
+end)
+v3.TrapHitVisual.OnClientEvent:Connect(function(p3, p4, p5)
+    p3.TrapVisual.CFrame = p4
+    p3.TrapVisual.Transparency = 0
+    local v52 = game.Players.LocalPlayer
+    local v53 = p3.PlacedPlayer
+    local v54 = v53.Value
+    if v52 == v54 then
+        v54 = script
+        v52 = v54.TrappedBillboard
+        local v47 = v52:Clone()
+        v53 = p5.Character
+        v54 = v53.HumanoidRootPart
+        v47.Parent = v54
+        v54 = true
+        v47.Enabled = v54
+        v53 = game
+        v54 = v53.Debris
+        v54:AddItem(v47, 5)
+    end
+end)
+v3.PlaceTrapLocal.OnClientEvent:Connect(function(p6)
+    p6.TrapVisual.Transparency = 0.5
+    local v59 = script.TrapBillboard:Clone()
+    v59.Parent = p6.TrapVisual
+    v59.Enabled = true
+end)
+v3.TrapNotification.OnClientEvent:Connect(function(p7)
+    script.Sound:Play()
+    local v69, v70, v71 = pairs(p7:GetDescendants())
+    for v76, v74 in v69, v70, v71 do
+        if not v74:IsA("BillboardGui") then
+            v74:Destroy()
+        end
+    end
+end)
+
+//
+
+local v2 = time()
+local v3
+while true do
+    wait()
+    if game.Players.LocalPlayer.Character then
+        break
+    end
+end
+while true do
+    v8 = wait
+    v8()
+    v5 = game
+    v6 = v5.Players
+    v7 = v6.LocalPlayer
+    v6 = "HumanoidRootPart"
+    if v7.Character:FindFirstChild(v6) then
+        break
+    end
+end
+v5 = game
+v7 = v5.Players.LocalPlayer
+v10 = v7.PlayerGui
+local v12 = v10:WaitForChild("InteractGUI")
+v7 = game
+v5 = "TweenService"
+local v13 = v7:GetService(v5)
+local v18 = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+local v19
+local v20
+local v21 = false
+local v24 = game:GetService("UserInputService")
+local v27 = game:GetService("CollectionService")
+local v33 = UDim2.new(1.2, 0, 1.3, 0)
+local function CheckIfMurderer_1()
+    local v36 = false
+    local v37 = {}
+    local v42 = game
+    local v60 = v42.Players.LocalPlayer
+    v37[1] = game.Players.LocalPlayer.Backpack
+    v37[2] = v60.Character
+    local v43, v44, v39 = pairs(v37)
+    for v38, v42 in v43, v44, v60 do
+        local v47, v48, v49 = pairs(v42:GetChildren())
+        for v58, v52 in v47, v48, v49 do
+            if not v52:IsA("Tool") then
+                if not v52:FindFirstChild("Stab") then
+                    if not v52:FindFirstChild("KnifeClient") then
+                        v36 = true
+                    end
+                end
+            end
+        end
+    end
+    return v36
+end
+local v68 = game.Players.LocalPlayer.PlayerGui:WaitForChild("TouchInteractButtons")
+local v69 = v68:WaitForChild("Phone")
+local v72 = v68:WaitForChild("Tablet")
+local v73
+local v74
+game:GetService("RunService").Stepped:connect(function()
+    local v83 = time() - v2
+    local v192 = 0.1
+    if v192 > v83 then
+        return 
+    end
+    v192 = game.Players.LocalPlayer
+    v83 = v192.Character
+    return 
+    v83 = game.Players.LocalPlayer.Character
+    v12 = game.Players.LocalPlayer.PlayerGui:FindFirstChild("InteractGUI")
+    local v201 = v12
+    v19 = nil
+    local v203
+    v20 = v203
+    return 
+    local v87 = v24:GetLastInputType()
+    local v88 = Enum.UserInputType.Gamepad1
+    if v87 ~= v88 then
+        v203 = false
+    end
+    v88 = v24
+    local v89 = v88:GetLastInputType()
+    local v206 = Enum.UserInputType.Touch
+    if v89 ~= v206 then
+        v87 = false
+    end
+    v87 = true
+    v206 = v12
+    v89 = v206.Gamepad
+    v89.Visible = false
+    v12.Keyboard.Visible = false
+    local v212 = v12.Mobile
+    local v213 = false
+    v212.Visible = v213
+    if not true then
+        v213 = v12
+        v212 = v213.Gamepad
+        if v212 then
+            if not v87 then
+                v213 = v12
+                v212 = v213.Mobile
+                if v212 then
+                    v213 = v12
+                    v212 = v213.Keyboard
+                end
+                v213 = true
+                v212.Visible = v213
+                v213 = v212.Use
+                local v90 = v212.Cooldown
+                local v91 = v68
+                v91.Enabled = v87
+                if not v87 then
+                    v91 = _G.MobileDevice
+                    v91 = v68:FindFirstChild(_G.MobileDevice).TouchInteract
+                    v73 = v91
+                    v91 = v68:FindFirstChild(_G.MobileDevice).TouchInteractKnife
+                    v74 = v91
+                end
+                local v217 = v19
+                v93 = {}
+                v93.Size = v33
+                v93.Enabled = true
+                v19 = v13:Create(v12, v18, v93)
+                local v104 = {}
+                local v109 = UDim2.new(0, 0, 0, 0)
+                v104.Size = v109
+                v104.Enabled = false
+                local v110 = v13:Create(v12, v18, v104)
+                v20 = v110
+                v97 = pairs
+                local v113, v114, v115 = v97(v27:GetTagged("InteractiveBox"))
+                for v119, v109 in v113, v114, v115 do
+                    table.insert(v110, v109)
+                end
+                v113 = 1000
+                v114 = nil
+                v115 = {}
+                v119 = pairs
+                local v120, v121, v122 = v119({})
+                for v133, v124 in v120, v121, v122 do
+                    local v123 = v124.Position
+                    local v130 = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+                    local v225 = 6
+                    if v225 >= v123 - v130.magnitude then
+                        v123 = v115
+                        v130 = v124
+                        v225 = table.insert
+                        v225(v123, v130)
+                    end
+                end
+                v120 = pairs
+                v121 = v115
+                local v134, v135, v122 = v120(v121)
+                for v133, v124 in v134, v135, v122 do
+                    v125 = game
+                    v126 = v125.Players
+                    v127 = v126.LocalPlayer
+                    v128 = v127.Character
+                    v129 = v128.HumanoidRootPart
+                    v132 = v124.Position - v129.Position.magnitude
+                    local v226 = false
+                    v129 = "KnifeBox"
+                    local v139 = v124:FindFirstChild(v129)
+                    v139 = v124.KnifeBox.Value
+                    local v228 = false
+                    local v229 = true
+                    v139 = Ray.new
+                    v128 = v83.HumanoidRootPart
+                    v125 = v124.CFrame
+                    v126 = v125.p
+                    local v141 = v83.HumanoidRootPart
+                    v125 = v141.CFrame.p
+                    v127 = v126 - v125
+                    v128 = v127.unit
+                    v128 = v139(v128.CFrame.p, v128 * v132)
+                    v127 = v83
+                    local v232 = {}
+                    v125 = "IsDisabled"
+                    local v148 = v124:FindFirstChild(v125)
+                    if not v148 then
+                        local v149 = true
+                        v126 = v124.IsDisabled
+                        v148 = v126.Value
+                    end
+                    local v151 = v124:FindFirstChild("IsDisabled")
+                    v149 = false
+                    v149 = true
+                    v232.BoxDisabled = v149
+                    local v153 = v124:FindFirstChild("KeyToPickupColor")
+                    v153 = CheckIfMurderer_1
+                    v149 = not v153()
+                    if v149 then
+                        local v156 = v124:FindFirstChild("KeyToPickupColor")
+                        v149 = false
+                        v149 = true
+                    end
+                    v232.KeyDoorInnocents = v149
+                    local v158 = v124:FindFirstChild("PerPlayerUse")
+                    v158 = CheckIfMurderer_1
+                    v149 = not v158()
+                    if v149 then
+                        local v161 = v124:FindFirstChild("PerPlayerUse")
+                        v149 = false
+                        v149 = true
+                    end
+                    v232.GunSafe = v149
+                    local v163 = v124:FindFirstChild("PerPlayerUse")
+                    v163 = v124.PerPlayerUse
+                    v149 = not v163:FindFirstChild(game.Players.LocalPlayer.Name)
+                    if v149 then
+                        local v168 = v124:FindFirstChild("PerPlayerUse")
+                        v149 = false
+                        v149 = true
+                    end
+                    v232.PerUseUsedAlready = v149
+                    v149 = true
+                    v168 = CheckIfMurderer_1
+                    local v169 = v168()
+                    v149 = false
+                    v149 = true
+                    v232.MurdererOnlyInteract = v149
+                    local v171 = v124:FindFirstChild("RequireVision")
+                    local v172 = v124:FindFirstChild("RequireVision")
+                    v171 = v172.Value
+                    v149 = true
+                    if game.Workspace:FindPartOnRay(v128, v127) ~= v124 then
+                        v149 = true
+                        v172 = v124.RequireVision
+                        v171 = v172.Value
+                        local v174 = v124:FindFirstChild("RequireVision")
+                        v149 = false
+                        v149 = true
+                    end
+                    v232.RequiresVision = v149
+                    v149 = true
+                    v174 = pairs
+                    local v175, v176, v177 = v174(v232)
+                    for v178, v141 in v175, v176, v177 do
+                        if v141 then
+                            v149 = false
+                        end
+                    end
+                    if not v149 then
+                        v113 = v132
+                        v114 = v124
+                    end
+                end
+                if not v114 then
+                    v135 = v114.InUse
+                    v134 = v135.Value
+                    v135 = v12
+                    v135.Adornee = v114
+                    v3 = v114
+                    v133 = "KnifeBox"
+                    local v179 = v114:FindFirstChild(v133)
+                    if not v179 then
+                        v122 = v114.KnifeBox.Value
+                        v179 = false
+                        v179 = true
+                    end
+                    if not v179 then
+                        v213 = v212.KnifeUse
+                        v90 = v212.KnifeCooldown
+                    end
+                    v122 = pairs
+                    local v181, v182, v124 = v122(v212:GetChildren())
+                    for v132, v138 in v181, v182, v124 do
+                        v143 = false
+                        v138.Visible = v143
+                    end
+                    v124 = "KeyRequired"
+                    local v183 = v114:FindFirstChild(v124)
+                    if not v183 then
+                        v90 = v212.KeyRequired
+                        v182 = v183.KeyType.Value
+                        v132 = v183.KeyColor
+                        v132 = v90.UseText
+                        v143 = "Need "
+                        v146 = v212:GetChildren()
+                        v144 = "!"
+                        v138 = v143 .. v146 .. v144
+                        v132.Text = v138
+                        v132 = false
+                        v144 = game
+                        v146 = v144.Players
+                        v143 = v146.LocalPlayer
+                        v138 = v143.Character
+                        v146 = v212:GetChildren()
+                        local v185 = v138:FindFirstChild(v146)
+                        if not v185 then
+                            v143 = v185.KeyColor.Value
+                            if v143 == v132.Value then
+                                v132 = true
+                            end
+                        end
+                        v134 = not v132
+                    end
+                    v182 = not v134
+                    v213.Visible = v182
+                    v90.Visible = v134
+                    if v87 then
+                        if v179 then
+                            v132 = "UseName"
+                            local v187 = v114:FindFirstChild(v132)
+                            if not v187 then
+                                v187 = v213.UseText
+                                v184 = v114.UseName.Value
+                                v187.Text = v184
+                            else
+                                v187 = v213.UseText
+                                v184 = "Activate"
+                                v187.Text = v184
+                                v187 = v73
+                                v187 = v73
+                                v184 = not v179
+                                v187.Visible = v184
+                                v184 = v73
+                                v187 = v184.Use
+                                v184 = not v134
+                                v187.Visible = v184
+                                v184 = v73
+                                v187 = v184.Cooldown
+                                v187.Visible = v134
+                                v187 = v74
+                                v187.Visible = v179
+                            end
+                            local v238 = v21
+                            v184 = true
+                            v12.Enabled = v184
+                            v20:Cancel()
+                            v19:Play()
+                            v134 = nil
+                            v3 = v134
+                            v134 = v21
+                            v134 = v20
+                            v134:Play()
+                            v19:Cancel()
+                            local v191 = v73
+                            v191 = v73
+                            v179 = false
+                            v191.Visible = v179
+                            v179 = false
+                            v74.Visible = v179
+                            v179 = v12
+                            v21 = v179.Enabled
+                            return 
+                        end
+                    end
+                end
+                if not v171 then
+                end
+                if not v163 then
+                end
+                if not v158 then
+                end
+                if not v153 then
+                end
+                if v113 > v132 then
+                end
+            end
+        end
+    end
+end)
+local v244 = time()
+local function PressInteractButton_1(p1, p2, p3)
+    local v247 = v24:GetLastInputType()
+    local v248 = Enum.UserInputType.Keyboard
+    if v247 == v248 then
+        v247 = Enum.UserInputState.Begin
+        if p2 ~= v247 then
+            return 
+        end
+    end
+    v247 = v3
+    if not v247 then
+        v248 = time
+        local v250 = v244
+        v247 = v248() - v250
+        local v256 = 0.1
+        if v247 >= v256 then
+            v247 = v3
+            v250 = "KnifeBox"
+            local v251 = v247:FindFirstChild(v250)
+            if not v251 then
+                v256 = v3.KnifeBox
+                v251 = v256.Value
+                return 
+            end
+            v256 = v3
+            v251 = v256.Interact
+            v251:FireServer()
+            v244 = time()
+            v252 = "InteractClient"
+            local v255 = v3:FindFirstChild(v252)
+            if not v255 then
+                v256 = v3
+                v255 = v256.InteractClient
+                v255:Fire()
+            end
+        end
+    end
+end
+(game:GetService("ContextActionService")):BindAction("InteractKey", PressInteractButton_1, false, Enum.KeyCode.F)
+(game:GetService("ContextActionService")):BindAction("InteractGamepadButton", PressInteractButton_1, false, Enum.KeyCode.ButtonY)
+v68.Phone.TouchInteract.MouseButton1Click:connect(PressInteractButton_1)
+v68.Tablet.TouchInteract.MouseButton1Click:connect(PressInteractButton_1)
+]
+
+//
+
+local v3 = game:GetService("Players")
+local v9 = game:GetService("Chat")
+local v12 = game:GetService("TextService")
+local v13 = v3.LocalPlayer
+while true do
+    v3.ChildAdded:wait()
+    v13 = v3.LocalPlayer
+end
+local v23, v24 = pcall(function()
+    return (UserSettings()):IsUserFeatureEnabled("UserShouldClipInGameChat")
+end)
+local v25 = v23 and v24
+local v26 = Enum.Font.SourceSans
+local v27 = Enum.FontSize.Size24
+local v28 = {}
+v28.WHITE = "dub"
+v28.BLUE = "blu"
+v28.GREEN = "gre"
+v28.RED = "red"
+local v31 = Instance.new("ScreenGui")
+v31.Name = "BubbleChat"
+v31.ResetOnSpawn = false
+v31.Parent = v13:WaitForChild("PlayerGui")
+local function lerpLength_1(p1, p2, p3)
+    return p2 + p3 - p2 * math.min(string.len(p1) / 75, 1)
+end
+local function createFifo_1()
+    local v46 = {}
+    v46.data = {}
+    local v49 = Instance.new("BindableEvent")
+    v46.Emptied = v49.Event
+    v46.Size = function(p4)
+        return #v46.data
+    end
+    v46.Empty = function(p5)
+        if v46:Size() < 0 then
+            local v59 = false
+        end
+        v59 = true
+        return v59
+    end
+    v46.PopFront = function(p6)
+        table.remove(v46.data, 1)
+        local v65 = v46:Empty()
+        if not v65 then
+            v65 = v49
+            v65:Fire()
+        end
+    end
+    v46.Front = function(p7)
+        return v46.data[1]
+    end
+    v46.Get = function(p8, p9)
+        return v46.data[p9]
+    end
+    v46.PushBack = function(p10, p11)
+        table.insert(v46.data, p11)
+    end
+    v46.GetData = function(p12)
+        return v46.data
+    end
+    return v46
+end
+local function createCharacterChats_1()
+    local v86 = {}
+    v86.Fifo = createFifo_1()
+    v86.BillboardGui = nil
+    return v86
+end
+local function createChatLine_1(p22, p23, p24)
+    local v128 = {}
+    local function ComputeBubbleLifetime_1(p25, p26, p27)
+        if not p27 then
+            return 8 + 7 * math.min(string.len(p26) / 75, 1)
+        end
+        v131 = 12
+        v132 = 8
+        v138 = math.min
+        v139 = v132 * v138(string.len(p26) / 75, 1)
+        return v131 + v139
+    end
+    v128.ComputeBubbleLifetime = ComputeBubbleLifetime_1
+    ComputeBubbleLifetime_1 = nil
+    v128.Origin = ComputeBubbleLifetime_1
+    ComputeBubbleLifetime_1 = nil
+    v128.RenderBubble = ComputeBubbleLifetime_1
+    v128.Message = p22
+    v128.BubbleDieDelay = v128:ComputeBubbleLifetime(p22, p24)
+    v128.BubbleColor = p23
+    v128.IsLocalPlayer = p24
+    return v128
+end
+local function createPlayerChatLine_1(p28, p29, p30)
+    local v158 = createChatLine_1(p29, v28.WHITE, p30)
+    if not p28 then
+        v158.User = p28.Name
+        v158.Origin = p28.Character
+    end
+    return v158
+end
+local function createGameChatLine_1(p31, p32, p33, p34)
+    local v168 = createChatLine_1(p32, p34, p33)
+    v168.Origin = p31
+    return v168
+end
+createChatBubbleMain = function(p35, p36)
+    local v173 = Instance.new("ImageLabel")
+    v173.Name = "ChatBubble"
+    v173.ScaleType = Enum.ScaleType.Slice
+    v173.SliceCenter = p36
+    v173.Image = "rbxasset://textures/" .. tostring(p35) .. ".png"
+    v173.BackgroundTransparency = 1
+    v173.BorderSizePixel = 0
+    v173.Size = UDim2.new(1, 0, 1, 0)
+    v173.Position = UDim2.new(0, 0, 0, 0)
+    return v173
+end
+createChatBubbleTail = function(p37, p38)
+    local v200 = Instance.new("ImageLabel")
+    v200.Name = "ChatBubbleTail"
+    v200.Image = "rbxasset://textures/ui/dialog_tail.png"
+    v200.BackgroundTransparency = 1
+    v200.BorderSizePixel = 0
+    v200.Position = p37
+    v200.Size = p38
+    return v200
+end
+createChatBubbleWithTail = function(p39, p40, p41, p42)
+    local v209 = createChatBubbleMain(p39, p42)
+    createChatBubbleTail(p40, p41).Parent = v209
+    return v209
+end
+createScaledChatBubbleWithTail = function(p43, p44, p45, p46)
+    local v218 = createChatBubbleMain(p43, p46)
+    local v221 = Instance.new("Frame")
+    v221.Name = "ChatBubbleTailFrame"
+    v221.BackgroundTransparency = 1
+    v221.SizeConstraint = Enum.SizeConstraint.RelativeXX
+    v221.Position = UDim2.new(0.5, 0, 1, 0)
+    v221.Size = UDim2.new(p44, 0, p44, 0)
+    v221.Parent = v218
+    createChatBubbleTail(p45, UDim2.new(1, 0, 0.5, 0)).Parent = v221
+    return v218
+end
+local function createChatImposter_1(p47, p48, p49)
+    local v248 = Instance.new("ImageLabel")
+    v248.Name = "DialogPlaceholder"
+    v248.Image = "rbxasset://textures/" .. tostring(p47) .. ".png"
+    v248.BackgroundTransparency = 1
+    v248.BorderSizePixel = 0
+    v248.Position = UDim2.new(0, 0, -1.25, 0)
+    v248.Size = UDim2.new(1, 0, 1, 0)
+    local v263 = Instance.new("ImageLabel")
+    v263.Name = "DotDotDot"
+    v263.Image = "rbxasset://textures/" .. tostring(p48) .. ".png"
+    v263.BackgroundTransparency = 1
+    v263.BorderSizePixel = 0
+    v263.Position = UDim2.new(0.001, 0, p49, 0)
+    v263.Size = UDim2.new(1, 0, 0.7, 0)
+    v263.Parent = v248
+    return v248
+end
+createChatImposter = createChatImposter_1
+createChatImposter_1 = {}
+createChatImposter_1.ChatBubble = {}
+createChatImposter_1.ChatBubbleWithTail = {}
+createChatImposter_1.ScalingChatBubbleWithTail = {}
+createChatImposter_1.CharacterSortedMsg = (function()
+    local v92 = {}
+    local v93 = {}
+    v92.data = v93
+    v93 = 0
+    v92.Size = function(p13)
+        return v93
+    end
+    v92.Erase = function(p14, p15)
+        local v99 = v92.data
+        local v100 = v99[p15]
+        if not v100 then
+            v99 = v93
+            v100 = v99 - 1
+            v93 = v100
+        end
+        v92.data[p15] = nil
+    end
+    v92.Set = function(p16, p17, p18)
+        local v105 = v92
+        local v106 = v105.data
+        v106[p17] = p18
+        if not p18 then
+            v105 = v93
+            v106 = v105 + 1
+            v93 = v106
+        end
+    end
+    v92.Get = function(p19, p20)
+        if p20 then
+            return 
+        end
+        local v108 = v92
+        local v109 = v108.data
+        local v110 = v109[p20]
+        if v110 then
+            v109 = v92
+            v110 = v109.data
+            v108 = {}
+            v108.Fifo = createFifo_1()
+            v108.BillboardGui = nil
+            v109 = v108
+            v110[p20] = v109
+            v110 = nil
+            v108 = v92.data[p20].Fifo
+            v109 = v108.Emptied
+            v110 = v109:connect(function()
+                v110:disconnect()
+                v92:Erase(p20)
+            end)
+        end
+        v118 = v92.data
+        v110 = v118[p20]
+        return v110
+    end
+    v92.GetData = function(p21)
+        return v92.data
+    end
+    return v92
+end)()
+local function initChatBubbleType_1(p50, p51, p52, p53, p54)
+    createChatImposter_1.ChatBubble[p50] = createChatBubbleMain(p51, p54)
+    if not p53 then
+        local v309 = -1
+    else
+        v309 = 0
+    end
+    createChatImposter_1.ChatBubbleWithTail[p50] = createChatBubbleWithTail(p51, UDim2.new(0.5, -14, 1, v309), UDim2.new(0, 30, 0, 14), p54)
+    if not p53 then
+        local v325 = -1
+    else
+        v325 = 0
+    end
+    createChatImposter_1.ScalingChatBubbleWithTail[p50] = createScaledChatBubbleWithTail(p51, 0.5, UDim2.new(-0.5, 0, 0, v325), p54)
+end
+initChatBubbleType_1(v28.WHITE, "ui/dialog_white", "ui/chatBubble_white_notify_bkg", false, Rect.new(5, 5, 15, 15))
+initChatBubbleType_1(v28.BLUE, "ui/dialog_blue", "ui/chatBubble_blue_notify_bkg", true, Rect.new(7, 7, 33, 33))
+initChatBubbleType_1(v28.RED, "ui/dialog_red", "ui/chatBubble_red_notify_bkg", true, Rect.new(7, 7, 33, 33))
+initChatBubbleType_1(v28.GREEN, "ui/dialog_green", "ui/chatBubble_green_notify_bkg", true, Rect.new(7, 7, 33, 33))
+createChatImposter_1.SanitizeChatLine = function(p55, p56)
+    local v380 = string.len(p56)
+    local v381 = 124
+    if v380 > v381 then
+        v381 = p56
+        v380 = string.sub
+        return v380(v381, 1, 127)
+    end
+    return p56
+end
+local function createBillboardInstance_1(p57)
+    local v387 = Instance.new("BillboardGui")
+    v387.Adornee = p57
+    v387.Size = UDim2.new(0, 400, 0, 250)
+    v387.StudsOffset = Vector3.new(0, 1.5, 2)
+    v387.Parent = v31
+    local v399 = Instance.new("Frame")
+    v399.Name = "BillboardFrame"
+    v399.Size = UDim2.new(1, 0, 1, 0)
+    local v410 = UDim2.new(0, 0, -0.5, 0)
+    v399.Position = v410
+    v399.BackgroundTransparency = 1
+    v399.Parent = v387
+    local v428
+    local v429 = v399.ChildRemoved:connect(function()
+        local v415 = #v399:GetChildren()
+        if 1 >= v415 then
+            v415 = v410
+            v415:disconnect()
+            v387:Destroy()
+        end
+    end)
+    createChatImposter_1:CreateSmallTalkBubble(v28.WHITE).Parent = v399
+    return v387
+end
+createChatImposter_1.CreateBillboardGuiHelper = function(p58, p59, p60)
+    if not p59 then
+        local v433 = createChatImposter_1
+        local v436 = v433.CharacterSortedMsg:Get(p59)
+        if v436.BillboardGui then
+            if p60 then
+                v433 = "BasePart"
+                local v438 = p59:IsA(v433)
+                if not v438 then
+                    v438 = createBillboardInstance_1
+                    v436 = p59
+                    createChatImposter_1.CharacterSortedMsg:Get(p59).BillboardGui = v438(v436)
+                    return 
+                end
+            end
+            v440 = "Model"
+            if not p59:IsA(v440) then
+                local v446 = p59:FindFirstChild("Head")
+                if not v446 then
+                    local v448 = v446:IsA("BasePart")
+                    if not v448 then
+                        v448 = createBillboardInstance_1
+                        createChatImposter_1.CharacterSortedMsg:Get(p59).BillboardGui = v448(v446)
+                    end
+                end
+            end
+        end
+    end
+end
+local function distanceToBubbleOrigin_1(p61)
+    if p61 then
+        return 100000
+    end
+    return p61.Position - game.Workspace.CurrentCamera.CoordinateFrame.p.magnitude
+end
+local function isPartOfLocalPlayer_1(p62)
+    if not p62 then
+        local v467 = v3
+        if not v467.LocalPlayer.Character then
+            v467 = v3.LocalPlayer.Character
+            return p62:IsDescendantOf(v467)
+        end
+    end
+end
+createChatImposter_1.SetBillboardLODNear = function(p63, p64)
+    local v474 = p64.Adornee
+    if not v474 then
+        local v475 = v3
+        if not v475.LocalPlayer.Character then
+            v475 = v3.LocalPlayer.Character
+            local v481 = v474:IsDescendantOf(v475)
+        else
+            v481 = nil
+        end
+        v474 = UDim2.new
+        v480 = 0
+        v479 = 250
+        p64.Size = v474(v480, 400, 0, v479)
+        if not v481 then
+            local v485 = 1.5
+        else
+            v485 = 2.5
+        end
+        if not v481 then
+            local v486 = 2
+        else
+            v486 = 0.1
+        end
+        p64.StudsOffset = Vector3.new(0, v485, v486)
+        p64.Enabled = true
+        local v488 = p64.BillboardFrame:GetChildren()
+        local v489 = 1
+        local v490 = #v488
+        local v491 = 1
+        for v489 = v489, v490, v491 do
+            v478 = true
+            v488[v489].Visible = v478
+        end
+        v491 = p64.BillboardFrame
+        v490 = v491.SmallTalkBubble
+        v490.Visible = false
+        return 
+    end
+end
+createChatImposter_1.SetBillboardLODDistant = function(p65, p66)
+    local v499 = p66.Adornee
+    if not v499 then
+        local v500 = v3
+        if not v500.LocalPlayer.Character then
+            v500 = v3.LocalPlayer.Character
+            local v506 = v499:IsDescendantOf(v500)
+        else
+            v506 = nil
+        end
+        v499 = UDim2.new
+        v505 = 4
+        v504 = 0
+        p66.Size = v499(v505, 0, 3, v504)
+        if not v506 then
+            local v511 = 2
+        else
+            v511 = 0.1
+        end
+        p66.StudsOffset = Vector3.new(0, 3, v511)
+        p66.Enabled = true
+        local v513 = p66.BillboardFrame:GetChildren()
+        local v514 = 1
+        local v515 = #v513
+        local v516 = 1
+        for v514 = v514, v515, v516 do
+            v503 = false
+            v513[v514].Visible = v503
+        end
+        v516 = p66.BillboardFrame
+        v515 = v516.SmallTalkBubble
+        v515.Visible = true
+        return 
+    end
+end
+createChatImposter_1.SetBillboardLODVeryFar = function(p67, p68)
+    p68.Enabled = false
+end
+createChatImposter_1.SetBillboardGuiLOD = function(p69, p70, p71)
+    if p71 then
+        return 
+    end
+    if not p71:IsA("Model") then
+        local v530 = p71:FindFirstChild("Head")
+        if v530 then
+            p71 = p71.PrimaryPart
+        else
+            p71 = v530
+        end
+    end
+    local v531 = p71
+    if v531 then
+        v530 = 100000
+    else
+        v530 = v531.Position - game.Workspace.CurrentCamera.CoordinateFrame.p.magnitude
+    end
+    local v543 = 65
+    if v543 > v530 then
+        v543 = createChatImposter_1
+        v532 = p70
+        v543:SetBillboardLODNear(v532)
+        return 
+    end
+    local v539 = 65
+    if v530 >= v539 then
+        v539 = 100
+        if v539 > v530 then
+            v539 = createChatImposter_1
+            v539:SetBillboardLODDistant(p70)
+            return 
+        end
+    end
+    createChatImposter_1:SetBillboardLODVeryFar(p70)
+end
+createChatImposter_1.CameraCFrameChanged = function(p72)
+    local v546 = createChatImposter_1
+    local v548, v549, v546 = pairs(v546.CharacterSortedMsg:GetData())
+    for v555, v551 in v548, v549, v546 do
+        local v550 = v551.BillboardGui
+        if not v550 then
+            createChatImposter_1:SetBillboardGuiLOD(v550, v555)
+        end
+    end
+end
+createChatImposter_1.CreateBubbleText = function(p73, p74)
+    local v559 = Instance.new("TextLabel")
+    v559.Name = "BubbleText"
+    v559.BackgroundTransparency = 1
+    v559.Position = UDim2.new(0, 15, 0, 0)
+    v559.Size = UDim2.new(1, -30, 1, 0)
+    v559.Font = v26
+    local v575 = v25
+    if not v575 then
+        v575 = true
+        v559.ClipsDescendants = v575
+    end
+    v559.TextWrapped = true
+    v559.FontSize = v27
+    v559.Text = p74
+    v559.Visible = false
+    v559.AutoLocalize = false
+    return v559
+end
+createChatImposter_1.CreateSmallTalkBubble = function(p75, p76)
+    local v584 = createChatImposter_1.ScalingChatBubbleWithTail[p76]:Clone()
+    v584.Name = "SmallTalkBubble"
+    v584.AnchorPoint = Vector2.new(0, 0.5)
+    v584.Position = UDim2.new(0, 0, 0.5, 0)
+    v584.Visible = false
+    local v593 = createChatImposter_1:CreateBubbleText("...")
+    v593.TextScaled = true
+    v593.TextWrapped = false
+    v593.Visible = true
+    v593.Parent = v584
+    return v584
+end
+createChatImposter_1.UpdateChatLinesForOrigin = function(p77, p78, p79)
+    local v608 = createChatImposter_1.CharacterSortedMsg:Get(p78).Fifo
+    local v610 = v608:GetData()
+    local v611 = #v610
+    local v612 = 1
+    if v612 >= v611 then
+        return 
+    end
+    local v613 = #v610
+    local v614 = v613 - 1
+    v611 = 1
+    v612 = -1
+    for v614 = v614, v611, v612 do
+        v613 = v610[v614]
+        local v615 = v613.RenderBubble
+        if v615 then
+            return 
+        end
+        if v608:Size() - v614 + 1 > 1 then
+            local v619 = v615:FindFirstChild("ChatBubbleTail")
+            if not v619 then
+                v619:Destroy()
+            end
+            local v623 = v615:FindFirstChild("BubbleText")
+            if not v623 then
+                v623.TextTransparency = 0.5
+            end
+        end
+        v619 = UDim2.new
+        v624 = v615.Position.X
+        v623 = v624.Scale
+        v624 = v615.Position.X.Offset
+        v615:TweenPosition(v619(v623, v624, 1, p79 - v615.Size.Y.Offset - 14), Enum.EasingDirection.Out, Enum.EasingStyle.Bounce, 0.1, true)
+        p79 = p79 - v615.Size.Y.Offset - 14
+    end
+end
+createChatImposter_1.DestroyBubble = function(p80, p81, p82)
+    if p81 then
+        return 
+    end
+    local v648 = p81:Empty()
+    if not v648 then
+        return 
+    end
+    v648 = p81:Front().RenderBubble
+    if v648 then
+        p81:PopFront()
+        return 
+    end
+    spawn(function()
+        while true do
+            local v655 = p81:Front().RenderBubble
+            if v655 ~= p82 then
+                break
+            end
+            v655 = wait
+            v655()
+        end
+        v654 = p81
+        v648 = v654:Front().RenderBubble
+        local v671 = 0
+        local v659 = v648:FindFirstChild("BubbleText")
+        local v662 = v648:FindFirstChild("ChatBubbleTail")
+        while true do
+            local v663 = v648
+            if not v663 then
+                break
+            end
+            v663 = v648.ImageTransparency
+            local v673 = 1
+            if v673 > v663 then
+                break
+            end
+            v663 = wait
+            v671 = v663()
+            local v674 = v648
+            if not v674 then
+                v674 = v671 * 1.5
+                v673 = v648
+                local v668 = v648.ImageTransparency + v674
+                v673.ImageTransparency = v668
+                if not v659 then
+                    v668 = v659.TextTransparency
+                    v673 = v668 + v674
+                    v659.TextTransparency = v673
+                end
+                if not v662 then
+                    v668 = v662.ImageTransparency
+                    v673 = v668 + v674
+                    v662.ImageTransparency = v673
+                end
+            end
+        end
+        v665 = v648
+        if not v665 then
+            v665 = v648
+            v665:Destroy()
+            p81:PopFront()
+        end
+    end)
+end
+createChatImposter_1.CreateChatLineRender = function(p83, p84, p85, p86, p87)
+    if p84 then
+        return 
+    end
+    local v676 = createChatImposter_1
+    local v680 = v676.CharacterSortedMsg:Get(p84).BillboardGui
+    if v680 then
+        v680 = createChatImposter_1
+        v676 = p84
+        v680:CreateBillboardGuiHelper(v676, p86)
+    end
+    local v682 = createChatImposter_1
+    local v684 = v682.CharacterSortedMsg:Get(p84)
+    local v685 = v684.BillboardGui
+    if not v685 then
+        v682 = createChatImposter_1.ChatBubbleWithTail
+        v684 = v682[p85.BubbleColor]
+        local v687 = v684:Clone()
+        v682 = false
+        v687.Visible = v682
+        v682 = createChatImposter_1
+        local v689 = v682:CreateBubbleText(p85.Message)
+        v689.Parent = v687
+        v687.Parent = v685.BillboardFrame
+        p85.RenderBubble = v687
+        local v696 = v12:GetTextSize(v689.Text, 24, v26, Vector2.new(400, 250))
+        local v701 = math.max(v696.X + 30 / 400, 0.1)
+        v687.Size = UDim2.new(0, 0, 0, 0)
+        v687.Position = UDim2.new(0.5, 0, 1, 0)
+        local v753 = v696.Y / 24 * 34
+        v687:TweenSizeAndPosition(UDim2.new(v701, 0, 0, v753), UDim2.new(1 - v701 / 2, 0, 1, -v753), Enum.EasingDirection.Out, Enum.EasingStyle.Elastic, 0.1, true, function()
+            v689.Visible = true
+        end)
+        createChatImposter_1:SetBillboardGuiLOD(v685, p85.Origin)
+        createChatImposter_1:UpdateChatLinesForOrigin(p85.Origin, -v753)
+        delay(p85.BubbleDieDelay, function()
+            createChatImposter_1:DestroyBubble(p87, v687)
+        end)
+    end
+end
+createChatImposter_1.OnPlayerChatMessage = function(p88, p89, p90, p91)
+    local v758 = createChatImposter_1:BubbleChatEnabled()
+    if v758 then
+        return 
+    end
+    v758 = v3.LocalPlayer
+    local v779 = false
+    if p89 == v758 then
+        v779 = false
+    end
+    local v763 = not true
+    local v768 = createChatLine_1(createChatImposter_1:SanitizeChatLine(p90), v28.WHITE, v763)
+    if not p89 then
+        v768.User = p89.Name
+        v768.Origin = p89.Character
+    end
+    local v770 = v768
+    if not p89 then
+        v763 = v770.Origin
+        if not v763 then
+            v769 = createChatImposter_1
+            v768 = v769.CharacterSortedMsg
+            v763 = v768:Get(v770.Origin).Fifo
+            v763:PushBack(v770)
+            createChatImposter_1:CreateChatLineRender(p89.Character, v770, true, v763)
+        end
+    end
+end
+createChatImposter_1.OnGameChatMessage = function(p92, p93, p94, p95)
+    local v809 = false
+    local v786 = v3.LocalPlayer.Character
+    if v786 == p93 then
+        v809 = false
+    end
+    v786 = v28.WHITE
+    local v811 = Enum.ChatColor.Blue
+    if p95 == v811 then
+        v811 = v28
+        v786 = v811.BLUE
+    else
+        v811 = Enum.ChatColor.Green
+        if p95 == v811 then
+            v811 = v28
+            v786 = v811.GREEN
+        else
+            v811 = Enum.ChatColor.Red
+            if p95 == v811 then
+                v811 = v28
+                v786 = v811.RED
+            end
+        end
+    end
+    local v796 = createChatLine_1(createChatImposter_1:SanitizeChatLine(p94), v786, not true)
+    v796.Origin = p93
+    local v797 = v796
+    createChatImposter_1.CharacterSortedMsg:Get(v797.Origin).Fifo:PushBack(v797)
+    createChatImposter_1:CreateChatLineRender(p93, v797, false, createChatImposter_1.CharacterSortedMsg:Get(v797.Origin).Fifo)
+end
+createChatImposter_1.BubbleChatEnabled = function(p96)
+    local v820 = v9:FindFirstChild("ClientChatModules")
+    if not v820 then
+        local v823 = v820:FindFirstChild("ChatSettings")
+        if not v823 then
+            local v826 = require(v823)
+            local v827 = v826.BubbleChatEnabled
+            v827 = v826.BubbleChatEnabled
+            return v827
+        end
+    end
+    v826 = v3
+    v823 = v826.BubbleChat
+    return v823
+end
+createChatImposter_1.ShowOwnFilteredMessage = function(p97)
+    local v831 = v9:FindFirstChild("ClientChatModules")
+    if not v831 then
+        local v834 = v831:FindFirstChild("ChatSettings")
+        if not v834 then
+            v834 = require(v834)
+            return v834.ShowUserOwnFilteredMessage
+        end
+    end
+    v834 = false
+    return v834
+end
+local function findPlayer_1(p98)
+    local v842, v843, v844 = pairs(v3:GetPlayers())
+    for v847, v848 in v842, v843, v844 do
+        if v846.Name == p98 then
+            return v846
+        end
+    end
+end
+findPlayer = findPlayer_1
+findPlayer_1 = v9.Chatted
+findPlayer_1:connect(function(p99, p100, p101)
+    createChatImposter_1:OnGameChatMessage(p99, p100, p101)
+end)
+local v854
+local v855 = game
+local v856 = v855.Workspace
+local v857 = v856.CurrentCamera
+if not v857 then
+    v855 = game
+    v856 = v855.Workspace
+    v857 = v856.CurrentCamera
+    v855 = "CFrame"
+    v854 = (v857:GetPropertyChangedSignal(v855)):connect(function(p102)
+        createChatImposter_1:CameraCFrameChanged()
+    end)
+end
+v861 = game.Workspace.Changed
+v861:connect(function(p103)
+    local v863 = v854
+    if not v863 then
+        v863 = v854
+        v863:disconnect()
+    end
+    local v864 = game
+    local v865 = v864.Workspace
+    local v866 = v865.CurrentCamera
+    if not v866 then
+        v864 = game
+        v865 = v864.Workspace
+        v866 = v865.CurrentCamera
+        v864 = "CFrame"
+        v854 = (v866:GetPropertyChangedSignal(v864)):connect(function(p104)
+            createChatImposter_1:CameraCFrameChanged()
+        end)
+    end
+end)
+local v871
+getAllowedMessageTypes = function()
+    local v873 = v871
+    if not v873 then
+        v873 = v871
+        return v873
+    end
+    local v876 = v9:FindFirstChild("ClientChatModules")
+    if not v876 then
+        local v879 = v876:FindFirstChild("ChatSettings")
+        if not v879 then
+            v879 = require(v879)
+            local v892 = v879.BubbleChatMessageTypes
+            if not v892 then
+                v892 = v879.BubbleChatMessageTypes
+                v871 = v892
+                v892 = v871
+                return v892
+            end
+        end
+        local v885 = v876:FindFirstChild("ChatConstants")
+        if not v885 then
+            v885 = require(v885)
+            local v893 = {}
+            v893[1] = v885.MessageTypeDefault
+            v893[2] = v885.MessageTypeWhisper
+            v871 = v893
+        end
+        v888 = v871
+        return v888
+    end
+    v879 = {}
+    v885 = "Message"
+    v879[1] = v885
+    v879[2] = "Whisper"
+    return v879
+end
+checkAllowedMessageType = function(p105)
+    local v896 = getAllowedMessageTypes()
+    local v897 = 1
+    local v898 = #v896
+    for v897 = v897, v898, 1 do
+        local v900 = v896[v897]
+        if v900 == p105.MessageType then
+            v900 = true
+            return v900
+        end
+    end
+    v898 = false
+    return v898
+end
+local v903 = (game:GetService("ReplicatedStorage")):WaitForChild("DefaultChatSystemChatEvents")
+v903:WaitForChild("OnNewMessage").OnClientEvent:connect(function(p106, p107)
+    local v914 = checkAllowedMessageType(p106)
+    if v914 then
+        return 
+    end
+    v914 = findPlayer
+    local v916 = v914(p106.FromSpeaker)
+    if v916 then
+        return 
+    end
+    local v917 = p106.IsFiltered
+    if not v917 then
+        v917 = p106.FromSpeaker
+        local v918 = v13
+        local v919 = v918.Name
+        if v917 == v919 then
+            v917 = p106.FromSpeaker
+            v918 = v13
+            v919 = v918.Name
+            if v917 == v919 then
+                v917 = createChatImposter_1
+                local v920 = v917:ShowOwnFilteredMessage()
+                if not v920 then
+                    return 
+                end
+                v920 = createChatImposter_1
+                v918 = v916
+                v920:OnPlayerChatMessage(v918, p106.Message, nil)
+                return 
+            end
+        end
+    end
+end)
+v903:WaitForChild("OnMessageDoneFiltering").OnClientEvent:connect(function(p108, p109)
+    local v927 = checkAllowedMessageType(p108)
+    if v927 then
+        return 
+    end
+    v927 = findPlayer
+    local v929 = v927(p108.FromSpeaker)
+    if v929 then
+        return 
+    end
+    local v930 = p108.FromSpeaker
+    if v930 == v13.Name then
+        v930 = createChatImposter_1
+        if v930:ShowOwnFilteredMessage() then
+            return 
+        end
+    end
+    v933 = createChatImposter_1
+    v933:OnPlayerChatMessage(v929, p108.Message, nil)
+end)
+
+//
+
+local v3 = game:GetService("Players")
+local v9 = game:GetService("Chat")
+local v12 = game:GetService("TextService")
+local v13 = v3.LocalPlayer
+while true do
+    v3.ChildAdded:wait()
+    v13 = v3.LocalPlayer
+end
+local v23, v24 = pcall(function()
+    return (UserSettings()):IsUserFeatureEnabled("UserShouldClipInGameChat")
+end)
+local v25 = v23 and v24
+local v26 = Enum.Font.SourceSans
+local v27 = Enum.FontSize.Size24
+local v28 = {}
+v28.WHITE = "dub"
+v28.BLUE = "blu"
+v28.GREEN = "gre"
+v28.RED = "red"
+local v31 = Instance.new("ScreenGui")
+v31.Name = "BubbleChat"
+v31.ResetOnSpawn = false
+v31.Parent = v13:WaitForChild("PlayerGui")
+local function lerpLength_1(p1, p2, p3)
+    return p2 + p3 - p2 * math.min(string.len(p1) / 75, 1)
+end
+local function createFifo_1()
+    local v46 = {}
+    v46.data = {}
+    local v49 = Instance.new("BindableEvent")
+    v46.Emptied = v49.Event
+    v46.Size = function(p4)
+        return #v46.data
+    end
+    v46.Empty = function(p5)
+        if v46:Size() < 0 then
+            local v59 = false
+        end
+        v59 = true
+        return v59
+    end
+    v46.PopFront = function(p6)
+        table.remove(v46.data, 1)
+        local v65 = v46:Empty()
+        if not v65 then
+            v65 = v49
+            v65:Fire()
+        end
+    end
+    v46.Front = function(p7)
+        return v46.data[1]
+    end
+    v46.Get = function(p8, p9)
+        return v46.data[p9]
+    end
+    v46.PushBack = function(p10, p11)
+        table.insert(v46.data, p11)
+    end
+    v46.GetData = function(p12)
+        return v46.data
+    end
+    return v46
+end
+local function createCharacterChats_1()
+    local v86 = {}
+    v86.Fifo = createFifo_1()
+    v86.BillboardGui = nil
+    return v86
+end
+local function createChatLine_1(p22, p23, p24)
+    local v128 = {}
+    local function ComputeBubbleLifetime_1(p25, p26, p27)
+        if not p27 then
+            return 8 + 7 * math.min(string.len(p26) / 75, 1)
+        end
+        v131 = 12
+        v132 = 8
+        v138 = math.min
+        v139 = v132 * v138(string.len(p26) / 75, 1)
+        return v131 + v139
+    end
+    v128.ComputeBubbleLifetime = ComputeBubbleLifetime_1
+    ComputeBubbleLifetime_1 = nil
+    v128.Origin = ComputeBubbleLifetime_1
+    ComputeBubbleLifetime_1 = nil
+    v128.RenderBubble = ComputeBubbleLifetime_1
+    v128.Message = p22
+    v128.BubbleDieDelay = v128:ComputeBubbleLifetime(p22, p24)
+    v128.BubbleColor = p23
+    v128.IsLocalPlayer = p24
+    return v128
+end
+local function createPlayerChatLine_1(p28, p29, p30)
+    local v158 = createChatLine_1(p29, v28.WHITE, p30)
+    if not p28 then
+        v158.User = p28.Name
+        v158.Origin = p28.Character
+    end
+    return v158
+end
+local function createGameChatLine_1(p31, p32, p33, p34)
+    local v168 = createChatLine_1(p32, p34, p33)
+    v168.Origin = p31
+    return v168
+end
+createChatBubbleMain = function(p35, p36)
+    local v173 = Instance.new("ImageLabel")
+    v173.Name = "ChatBubble"
+    v173.ScaleType = Enum.ScaleType.Slice
+    v173.SliceCenter = p36
+    v173.Image = "rbxasset://textures/" .. tostring(p35) .. ".png"
+    v173.BackgroundTransparency = 1
+    v173.BorderSizePixel = 0
+    v173.Size = UDim2.new(1, 0, 1, 0)
+    v173.Position = UDim2.new(0, 0, 0, 0)
+    return v173
+end
+createChatBubbleTail = function(p37, p38)
+    local v200 = Instance.new("ImageLabel")
+    v200.Name = "ChatBubbleTail"
+    v200.Image = "rbxasset://textures/ui/dialog_tail.png"
+    v200.BackgroundTransparency = 1
+    v200.BorderSizePixel = 0
+    v200.Position = p37
+    v200.Size = p38
+    return v200
+end
+createChatBubbleWithTail = function(p39, p40, p41, p42)
+    local v209 = createChatBubbleMain(p39, p42)
+    createChatBubbleTail(p40, p41).Parent = v209
+    return v209
+end
+createScaledChatBubbleWithTail = function(p43, p44, p45, p46)
+    local v218 = createChatBubbleMain(p43, p46)
+    local v221 = Instance.new("Frame")
+    v221.Name = "ChatBubbleTailFrame"
+    v221.BackgroundTransparency = 1
+    v221.SizeConstraint = Enum.SizeConstraint.RelativeXX
+    v221.Position = UDim2.new(0.5, 0, 1, 0)
+    v221.Size = UDim2.new(p44, 0, p44, 0)
+    v221.Parent = v218
+    createChatBubbleTail(p45, UDim2.new(1, 0, 0.5, 0)).Parent = v221
+    return v218
+end
+local function createChatImposter_1(p47, p48, p49)
+    local v248 = Instance.new("ImageLabel")
+    v248.Name = "DialogPlaceholder"
+    v248.Image = "rbxasset://textures/" .. tostring(p47) .. ".png"
+    v248.BackgroundTransparency = 1
+    v248.BorderSizePixel = 0
+    v248.Position = UDim2.new(0, 0, -1.25, 0)
+    v248.Size = UDim2.new(1, 0, 1, 0)
+    local v263 = Instance.new("ImageLabel")
+    v263.Name = "DotDotDot"
+    v263.Image = "rbxasset://textures/" .. tostring(p48) .. ".png"
+    v263.BackgroundTransparency = 1
+    v263.BorderSizePixel = 0
+    v263.Position = UDim2.new(0.001, 0, p49, 0)
+    v263.Size = UDim2.new(1, 0, 0.7, 0)
+    v263.Parent = v248
+    return v248
+end
+createChatImposter = createChatImposter_1
+createChatImposter_1 = {}
+createChatImposter_1.ChatBubble = {}
+createChatImposter_1.ChatBubbleWithTail = {}
+createChatImposter_1.ScalingChatBubbleWithTail = {}
+createChatImposter_1.CharacterSortedMsg = (function()
+    local v92 = {}
+    local v93 = {}
+    v92.data = v93
+    v93 = 0
+    v92.Size = function(p13)
+        return v93
+    end
+    v92.Erase = function(p14, p15)
+        local v99 = v92.data
+        local v100 = v99[p15]
+        if not v100 then
+            v99 = v93
+            v100 = v99 - 1
+            v93 = v100
+        end
+        v92.data[p15] = nil
+    end
+    v92.Set = function(p16, p17, p18)
+        local v105 = v92
+        local v106 = v105.data
+        v106[p17] = p18
+        if not p18 then
+            v105 = v93
+            v106 = v105 + 1
+            v93 = v106
+        end
+    end
+    v92.Get = function(p19, p20)
+        if p20 then
+            return 
+        end
+        local v108 = v92
+        local v109 = v108.data
+        local v110 = v109[p20]
+        if v110 then
+            v109 = v92
+            v110 = v109.data
+            v108 = {}
+            v108.Fifo = createFifo_1()
+            v108.BillboardGui = nil
+            v109 = v108
+            v110[p20] = v109
+            v110 = nil
+            v108 = v92.data[p20].Fifo
+            v109 = v108.Emptied
+            v110 = v109:connect(function()
+                v110:disconnect()
+                v92:Erase(p20)
+            end)
+        end
+        v118 = v92.data
+        v110 = v118[p20]
+        return v110
+    end
+    v92.GetData = function(p21)
+        return v92.data
+    end
+    return v92
+end)()
+local function initChatBubbleType_1(p50, p51, p52, p53, p54)
+    createChatImposter_1.ChatBubble[p50] = createChatBubbleMain(p51, p54)
+    if not p53 then
+        local v309 = -1
+    else
+        v309 = 0
+    end
+    createChatImposter_1.ChatBubbleWithTail[p50] = createChatBubbleWithTail(p51, UDim2.new(0.5, -14, 1, v309), UDim2.new(0, 30, 0, 14), p54)
+    if not p53 then
+        local v325 = -1
+    else
+        v325 = 0
+    end
+    createChatImposter_1.ScalingChatBubbleWithTail[p50] = createScaledChatBubbleWithTail(p51, 0.5, UDim2.new(-0.5, 0, 0, v325), p54)
+end
+initChatBubbleType_1(v28.WHITE, "ui/dialog_white", "ui/chatBubble_white_notify_bkg", false, Rect.new(5, 5, 15, 15))
+initChatBubbleType_1(v28.BLUE, "ui/dialog_blue", "ui/chatBubble_blue_notify_bkg", true, Rect.new(7, 7, 33, 33))
+initChatBubbleType_1(v28.RED, "ui/dialog_red", "ui/chatBubble_red_notify_bkg", true, Rect.new(7, 7, 33, 33))
+initChatBubbleType_1(v28.GREEN, "ui/dialog_green", "ui/chatBubble_green_notify_bkg", true, Rect.new(7, 7, 33, 33))
+createChatImposter_1.SanitizeChatLine = function(p55, p56)
+    local v380 = string.len(p56)
+    local v381 = 124
+    if v380 > v381 then
+        v381 = p56
+        v380 = string.sub
+        return v380(v381, 1, 127)
+    end
+    return p56
+end
+local function createBillboardInstance_1(p57)
+    local v387 = Instance.new("BillboardGui")
+    v387.Adornee = p57
+    v387.Size = UDim2.new(0, 400, 0, 250)
+    v387.StudsOffset = Vector3.new(0, 1.5, 2)
+    v387.Parent = v31
+    local v399 = Instance.new("Frame")
+    v399.Name = "BillboardFrame"
+    v399.Size = UDim2.new(1, 0, 1, 0)
+    local v410 = UDim2.new(0, 0, -0.5, 0)
+    v399.Position = v410
+    v399.BackgroundTransparency = 1
+    v399.Parent = v387
+    local v428
+    local v429 = v399.ChildRemoved:connect(function()
+        local v415 = #v399:GetChildren()
+        if 1 >= v415 then
+            v415 = v410
+            v415:disconnect()
+            v387:Destroy()
+        end
+    end)
+    createChatImposter_1:CreateSmallTalkBubble(v28.WHITE).Parent = v399
+    return v387
+end
+createChatImposter_1.CreateBillboardGuiHelper = function(p58, p59, p60)
+    if not p59 then
+        local v433 = createChatImposter_1
+        local v436 = v433.CharacterSortedMsg:Get(p59)
+        if v436.BillboardGui then
+            if p60 then
+                v433 = "BasePart"
+                local v438 = p59:IsA(v433)
+                if not v438 then
+                    v438 = createBillboardInstance_1
+                    v436 = p59
+                    createChatImposter_1.CharacterSortedMsg:Get(p59).BillboardGui = v438(v436)
+                    return 
+                end
+            end
+            v440 = "Model"
+            if not p59:IsA(v440) then
+                local v446 = p59:FindFirstChild("Head")
+                if not v446 then
+                    local v448 = v446:IsA("BasePart")
+                    if not v448 then
+                        v448 = createBillboardInstance_1
+                        createChatImposter_1.CharacterSortedMsg:Get(p59).BillboardGui = v448(v446)
+                    end
+                end
+            end
+        end
+    end
+end
+local function distanceToBubbleOrigin_1(p61)
+    if p61 then
+        return 100000
+    end
+    return p61.Position - game.Workspace.CurrentCamera.CoordinateFrame.p.magnitude
+end
+local function isPartOfLocalPlayer_1(p62)
+    if not p62 then
+        local v467 = v3
+        if not v467.LocalPlayer.Character then
+            v467 = v3.LocalPlayer.Character
+            return p62:IsDescendantOf(v467)
+        end
+    end
+end
+createChatImposter_1.SetBillboardLODNear = function(p63, p64)
+    local v474 = p64.Adornee
+    if not v474 then
+        local v475 = v3
+        if not v475.LocalPlayer.Character then
+            v475 = v3.LocalPlayer.Character
+            local v481 = v474:IsDescendantOf(v475)
+        else
+            v481 = nil
+        end
+        v474 = UDim2.new
+        v480 = 0
+        v479 = 250
+        p64.Size = v474(v480, 400, 0, v479)
+        if not v481 then
+            local v485 = 1.5
+        else
+            v485 = 2.5
+        end
+        if not v481 then
+            local v486 = 2
+        else
+            v486 = 0.1
+        end
+        p64.StudsOffset = Vector3.new(0, v485, v486)
+        p64.Enabled = true
+        local v488 = p64.BillboardFrame:GetChildren()
+        local v489 = 1
+        local v490 = #v488
+        local v491 = 1
+        for v489 = v489, v490, v491 do
+            v478 = true
+            v488[v489].Visible = v478
+        end
+        v491 = p64.BillboardFrame
+        v490 = v491.SmallTalkBubble
+        v490.Visible = false
+        return 
+    end
+end
+createChatImposter_1.SetBillboardLODDistant = function(p65, p66)
+    local v499 = p66.Adornee
+    if not v499 then
+        local v500 = v3
+        if not v500.LocalPlayer.Character then
+            v500 = v3.LocalPlayer.Character
+            local v506 = v499:IsDescendantOf(v500)
+        else
+            v506 = nil
+        end
+        v499 = UDim2.new
+        v505 = 4
+        v504 = 0
+        p66.Size = v499(v505, 0, 3, v504)
+        if not v506 then
+            local v511 = 2
+        else
+            v511 = 0.1
+        end
+        p66.StudsOffset = Vector3.new(0, 3, v511)
+        p66.Enabled = true
+        local v513 = p66.BillboardFrame:GetChildren()
+        local v514 = 1
+        local v515 = #v513
+        local v516 = 1
+        for v514 = v514, v515, v516 do
+            v503 = false
+            v513[v514].Visible = v503
+        end
+        v516 = p66.BillboardFrame
+        v515 = v516.SmallTalkBubble
+        v515.Visible = true
+        return 
+    end
+end
+createChatImposter_1.SetBillboardLODVeryFar = function(p67, p68)
+    p68.Enabled = false
+end
+createChatImposter_1.SetBillboardGuiLOD = function(p69, p70, p71)
+    if p71 then
+        return 
+    end
+    if not p71:IsA("Model") then
+        local v530 = p71:FindFirstChild("Head")
+        if v530 then
+            p71 = p71.PrimaryPart
+        else
+            p71 = v530
+        end
+    end
+    local v531 = p71
+    if v531 then
+        v530 = 100000
+    else
+        v530 = v531.Position - game.Workspace.CurrentCamera.CoordinateFrame.p.magnitude
+    end
+    local v543 = 65
+    if v543 > v530 then
+        v543 = createChatImposter_1
+        v532 = p70
+        v543:SetBillboardLODNear(v532)
+        return 
+    end
+    local v539 = 65
+    if v530 >= v539 then
+        v539 = 100
+        if v539 > v530 then
+            v539 = createChatImposter_1
+            v539:SetBillboardLODDistant(p70)
+            return 
+        end
+    end
+    createChatImposter_1:SetBillboardLODVeryFar(p70)
+end
+createChatImposter_1.CameraCFrameChanged = function(p72)
+    local v546 = createChatImposter_1
+    local v548, v549, v546 = pairs(v546.CharacterSortedMsg:GetData())
+    for v555, v551 in v548, v549, v546 do
+        local v550 = v551.BillboardGui
+        if not v550 then
+            createChatImposter_1:SetBillboardGuiLOD(v550, v555)
+        end
+    end
+end
+createChatImposter_1.CreateBubbleText = function(p73, p74)
+    local v559 = Instance.new("TextLabel")
+    v559.Name = "BubbleText"
+    v559.BackgroundTransparency = 1
+    v559.Position = UDim2.new(0, 15, 0, 0)
+    v559.Size = UDim2.new(1, -30, 1, 0)
+    v559.Font = v26
+    local v575 = v25
+    if not v575 then
+        v575 = true
+        v559.ClipsDescendants = v575
+    end
+    v559.TextWrapped = true
+    v559.FontSize = v27
+    v559.Text = p74
+    v559.Visible = false
+    v559.AutoLocalize = false
+    return v559
+end
+createChatImposter_1.CreateSmallTalkBubble = function(p75, p76)
+    local v584 = createChatImposter_1.ScalingChatBubbleWithTail[p76]:Clone()
+    v584.Name = "SmallTalkBubble"
+    v584.AnchorPoint = Vector2.new(0, 0.5)
+    v584.Position = UDim2.new(0, 0, 0.5, 0)
+    v584.Visible = false
+    local v593 = createChatImposter_1:CreateBubbleText("...")
+    v593.TextScaled = true
+    v593.TextWrapped = false
+    v593.Visible = true
+    v593.Parent = v584
+    return v584
+end
+createChatImposter_1.UpdateChatLinesForOrigin = function(p77, p78, p79)
+    local v608 = createChatImposter_1.CharacterSortedMsg:Get(p78).Fifo
+    local v610 = v608:GetData()
+    local v611 = #v610
+    local v612 = 1
+    if v612 >= v611 then
+        return 
+    end
+    local v613 = #v610
+    local v614 = v613 - 1
+    v611 = 1
+    v612 = -1
+    for v614 = v614, v611, v612 do
+        v613 = v610[v614]
+        local v615 = v613.RenderBubble
+        if v615 then
+            return 
+        end
+        if v608:Size() - v614 + 1 > 1 then
+            local v619 = v615:FindFirstChild("ChatBubbleTail")
+            if not v619 then
+                v619:Destroy()
+            end
+            local v623 = v615:FindFirstChild("BubbleText")
+            if not v623 then
+                v623.TextTransparency = 0.5
+            end
+        end
+        v619 = UDim2.new
+        v624 = v615.Position.X
+        v623 = v624.Scale
+        v624 = v615.Position.X.Offset
+        v615:TweenPosition(v619(v623, v624, 1, p79 - v615.Size.Y.Offset - 14), Enum.EasingDirection.Out, Enum.EasingStyle.Bounce, 0.1, true)
+        p79 = p79 - v615.Size.Y.Offset - 14
+    end
+end
+createChatImposter_1.DestroyBubble = function(p80, p81, p82)
+    if p81 then
+        return 
+    end
+    local v648 = p81:Empty()
+    if not v648 then
+        return 
+    end
+    v648 = p81:Front().RenderBubble
+    if v648 then
+        p81:PopFront()
+        return 
+    end
+    spawn(function()
+        while true do
+            local v655 = p81:Front().RenderBubble
+            if v655 ~= p82 then
+                break
+            end
+            v655 = wait
+            v655()
+        end
+        v654 = p81
+        v648 = v654:Front().RenderBubble
+        local v671 = 0
+        local v659 = v648:FindFirstChild("BubbleText")
+        local v662 = v648:FindFirstChild("ChatBubbleTail")
+        while true do
+            local v663 = v648
+            if not v663 then
+                break
+            end
+            v663 = v648.ImageTransparency
+            local v673 = 1
+            if v673 > v663 then
+                break
+            end
+            v663 = wait
+            v671 = v663()
+            local v674 = v648
+            if not v674 then
+                v674 = v671 * 1.5
+                v673 = v648
+                local v668 = v648.ImageTransparency + v674
+                v673.ImageTransparency = v668
+                if not v659 then
+                    v668 = v659.TextTransparency
+                    v673 = v668 + v674
+                    v659.TextTransparency = v673
+                end
+                if not v662 then
+                    v668 = v662.ImageTransparency
+                    v673 = v668 + v674
+                    v662.ImageTransparency = v673
+                end
+            end
+        end
+        v665 = v648
+        if not v665 then
+            v665 = v648
+            v665:Destroy()
+            p81:PopFront()
+        end
+    end)
+end
+createChatImposter_1.CreateChatLineRender = function(p83, p84, p85, p86, p87)
+    if p84 then
+        return 
+    end
+    local v676 = createChatImposter_1
+    local v680 = v676.CharacterSortedMsg:Get(p84).BillboardGui
+    if v680 then
+        v680 = createChatImposter_1
+        v676 = p84
+        v680:CreateBillboardGuiHelper(v676, p86)
+    end
+    local v682 = createChatImposter_1
+    local v684 = v682.CharacterSortedMsg:Get(p84)
+    local v685 = v684.BillboardGui
+    if not v685 then
+        v682 = createChatImposter_1.ChatBubbleWithTail
+        v684 = v682[p85.BubbleColor]
+        local v687 = v684:Clone()
+        v682 = false
+        v687.Visible = v682
+        v682 = createChatImposter_1
+        local v689 = v682:CreateBubbleText(p85.Message)
+        v689.Parent = v687
+        v687.Parent = v685.BillboardFrame
+        p85.RenderBubble = v687
+        local v696 = v12:GetTextSize(v689.Text, 24, v26, Vector2.new(400, 250))
+        local v701 = math.max(v696.X + 30 / 400, 0.1)
+        v687.Size = UDim2.new(0, 0, 0, 0)
+        v687.Position = UDim2.new(0.5, 0, 1, 0)
+        local v753 = v696.Y / 24 * 34
+        v687:TweenSizeAndPosition(UDim2.new(v701, 0, 0, v753), UDim2.new(1 - v701 / 2, 0, 1, -v753), Enum.EasingDirection.Out, Enum.EasingStyle.Elastic, 0.1, true, function()
+            v689.Visible = true
+        end)
+        createChatImposter_1:SetBillboardGuiLOD(v685, p85.Origin)
+        createChatImposter_1:UpdateChatLinesForOrigin(p85.Origin, -v753)
+        delay(p85.BubbleDieDelay, function()
+            createChatImposter_1:DestroyBubble(p87, v687)
+        end)
+    end
+end
+createChatImposter_1.OnPlayerChatMessage = function(p88, p89, p90, p91)
+    local v758 = createChatImposter_1:BubbleChatEnabled()
+    if v758 then
+        return 
+    end
+    v758 = v3.LocalPlayer
+    local v779 = false
+    if p89 == v758 then
+        v779 = false
+    end
+    local v763 = not true
+    local v768 = createChatLine_1(createChatImposter_1:SanitizeChatLine(p90), v28.WHITE, v763)
+    if not p89 then
+        v768.User = p89.Name
+        v768.Origin = p89.Character
+    end
+    local v770 = v768
+    if not p89 then
+        v763 = v770.Origin
+        if not v763 then
+            v769 = createChatImposter_1
+            v768 = v769.CharacterSortedMsg
+            v763 = v768:Get(v770.Origin).Fifo
+            v763:PushBack(v770)
+            createChatImposter_1:CreateChatLineRender(p89.Character, v770, true, v763)
+        end
+    end
+end
+createChatImposter_1.OnGameChatMessage = function(p92, p93, p94, p95)
+    local v809 = false
+    local v786 = v3.LocalPlayer.Character
+    if v786 == p93 then
+        v809 = false
+    end
+    v786 = v28.WHITE
+    local v811 = Enum.ChatColor.Blue
+    if p95 == v811 then
+        v811 = v28
+        v786 = v811.BLUE
+    else
+        v811 = Enum.ChatColor.Green
+        if p95 == v811 then
+            v811 = v28
+            v786 = v811.GREEN
+        else
+            v811 = Enum.ChatColor.Red
+            if p95 == v811 then
+                v811 = v28
+                v786 = v811.RED
+            end
+        end
+    end
+    local v796 = createChatLine_1(createChatImposter_1:SanitizeChatLine(p94), v786, not true)
+    v796.Origin = p93
+    local v797 = v796
+    createChatImposter_1.CharacterSortedMsg:Get(v797.Origin).Fifo:PushBack(v797)
+    createChatImposter_1:CreateChatLineRender(p93, v797, false, createChatImposter_1.CharacterSortedMsg:Get(v797.Origin).Fifo)
+end
+createChatImposter_1.BubbleChatEnabled = function(p96)
+    local v820 = v9:FindFirstChild("ClientChatModules")
+    if not v820 then
+        local v823 = v820:FindFirstChild("ChatSettings")
+        if not v823 then
+            local v826 = require(v823)
+            local v827 = v826.BubbleChatEnabled
+            v827 = v826.BubbleChatEnabled
+            return v827
+        end
+    end
+    v826 = v3
+    v823 = v826.BubbleChat
+    return v823
+end
+createChatImposter_1.ShowOwnFilteredMessage = function(p97)
+    local v831 = v9:FindFirstChild("ClientChatModules")
+    if not v831 then
+        local v834 = v831:FindFirstChild("ChatSettings")
+        if not v834 then
+            v834 = require(v834)
+            return v834.ShowUserOwnFilteredMessage
+        end
+    end
+    v834 = false
+    return v834
+end
+local function findPlayer_1(p98)
+    local v842, v843, v844 = pairs(v3:GetPlayers())
+    for v847, v848 in v842, v843, v844 do
+        if v846.Name == p98 then
+            return v846
+        end
+    end
+end
+findPlayer = findPlayer_1
+findPlayer_1 = v9.Chatted
+findPlayer_1:connect(function(p99, p100, p101)
+    createChatImposter_1:OnGameChatMessage(p99, p100, p101)
+end)
+local v854
+local v855 = game
+local v856 = v855.Workspace
+local v857 = v856.CurrentCamera
+if not v857 then
+    v855 = game
+    v856 = v855.Workspace
+    v857 = v856.CurrentCamera
+    v855 = "CFrame"
+    v854 = (v857:GetPropertyChangedSignal(v855)):connect(function(p102)
+        createChatImposter_1:CameraCFrameChanged()
+    end)
+end
+v861 = game.Workspace.Changed
+v861:connect(function(p103)
+    local v863 = v854
+    if not v863 then
+        v863 = v854
+        v863:disconnect()
+    end
+    local v864 = game
+    local v865 = v864.Workspace
+    local v866 = v865.CurrentCamera
+    if not v866 then
+        v864 = game
+        v865 = v864.Workspace
+        v866 = v865.CurrentCamera
+        v864 = "CFrame"
+        v854 = (v866:GetPropertyChangedSignal(v864)):connect(function(p104)
+            createChatImposter_1:CameraCFrameChanged()
+        end)
+    end
+end)
+local v871
+getAllowedMessageTypes = function()
+    local v873 = v871
+    if not v873 then
+        v873 = v871
+        return v873
+    end
+    local v876 = v9:FindFirstChild("ClientChatModules")
+    if not v876 then
+        local v879 = v876:FindFirstChild("ChatSettings")
+        if not v879 then
+            v879 = require(v879)
+            local v892 = v879.BubbleChatMessageTypes
+            if not v892 then
+                v892 = v879.BubbleChatMessageTypes
+                v871 = v892
+                v892 = v871
+                return v892
+            end
+        end
+        local v885 = v876:FindFirstChild("ChatConstants")
+        if not v885 then
+            v885 = require(v885)
+            local v893 = {}
+            v893[1] = v885.MessageTypeDefault
+            v893[2] = v885.MessageTypeWhisper
+            v871 = v893
+        end
+        v888 = v871
+        return v888
+    end
+    v879 = {}
+    v885 = "Message"
+    v879[1] = v885
+    v879[2] = "Whisper"
+    return v879
+end
+checkAllowedMessageType = function(p105)
+    local v896 = getAllowedMessageTypes()
+    local v897 = 1
+    local v898 = #v896
+    for v897 = v897, v898, 1 do
+        local v900 = v896[v897]
+        if v900 == p105.MessageType then
+            v900 = true
+            return v900
+        end
+    end
+    v898 = false
+    return v898
+end
+local v903 = (game:GetService("ReplicatedStorage")):WaitForChild("DefaultChatSystemChatEvents")
+v903:WaitForChild("OnNewMessage").OnClientEvent:connect(function(p106, p107)
+    local v914 = checkAllowedMessageType(p106)
+    if v914 then
+        return 
+    end
+    v914 = findPlayer
+    local v916 = v914(p106.FromSpeaker)
+    if v916 then
+        return 
+    end
+    local v917 = p106.IsFiltered
+    if not v917 then
+        v917 = p106.FromSpeaker
+        local v918 = v13
+        local v919 = v918.Name
+        if v917 == v919 then
+            v917 = p106.FromSpeaker
+            v918 = v13
+            v919 = v918.Name
+            if v917 == v919 then
+                v917 = createChatImposter_1
+                local v920 = v917:ShowOwnFilteredMessage()
+                if not v920 then
+                    return 
+                end
+                v920 = createChatImposter_1
+                v918 = v916
+                v920:OnPlayerChatMessage(v918, p106.Message, nil)
+                return 
+            end
+        end
+    end
+end)
+v903:WaitForChild("OnMessageDoneFiltering").OnClientEvent:connect(function(p108, p109)
+    local v927 = checkAllowedMessageType(p108)
+    if v927 then
+        return 
+    end
+    v927 = findPlayer
+    local v929 = v927(p108.FromSpeaker)
+    if v929 then
+        return 
+    end
+    local v930 = p108.FromSpeaker
+    if v930 == v13.Name then
+        v930 = createChatImposter_1
+        if v930:ShowOwnFilteredMessage() then
+            return 
+        end
+    end
+    v933 = createChatImposter_1
+    v933:OnPlayerChatMessage(v929, p108.Message, nil)
+end)
+
+//
+
+local v3 = game:GetService("Players")
+local v9 = game:GetService("Chat")
+local v12 = game:GetService("TextService")
+local v13 = v3.LocalPlayer
+while true do
+    v3.ChildAdded:wait()
+    v13 = v3.LocalPlayer
+end
+local v23, v24 = pcall(function()
+    return (UserSettings()):IsUserFeatureEnabled("UserShouldClipInGameChat")
+end)
+local v25 = v23 and v24
+local v26 = Enum.Font.SourceSans
+local v27 = Enum.FontSize.Size24
+local v28 = {}
+v28.WHITE = "dub"
+v28.BLUE = "blu"
+v28.GREEN = "gre"
+v28.RED = "red"
+local v31 = Instance.new("ScreenGui")
+v31.Name = "BubbleChat"
+v31.ResetOnSpawn = false
+v31.Parent = v13:WaitForChild("PlayerGui")
+local function lerpLength_1(p1, p2, p3)
+    return p2 + p3 - p2 * math.min(string.len(p1) / 75, 1)
+end
+local function createFifo_1()
+    local v46 = {}
+    v46.data = {}
+    local v49 = Instance.new("BindableEvent")
+    v46.Emptied = v49.Event
+    v46.Size = function(p4)
+        return #v46.data
+    end
+    v46.Empty = function(p5)
+        if v46:Size() < 0 then
+            local v59 = false
+        end
+        v59 = true
+        return v59
+    end
+    v46.PopFront = function(p6)
+        table.remove(v46.data, 1)
+        local v65 = v46:Empty()
+        if not v65 then
+            v65 = v49
+            v65:Fire()
+        end
+    end
+    v46.Front = function(p7)
+        return v46.data[1]
+    end
+    v46.Get = function(p8, p9)
+        return v46.data[p9]
+    end
+    v46.PushBack = function(p10, p11)
+        table.insert(v46.data, p11)
+    end
+    v46.GetData = function(p12)
+        return v46.data
+    end
+    return v46
+end
+local function createCharacterChats_1()
+    local v86 = {}
+    v86.Fifo = createFifo_1()
+    v86.BillboardGui = nil
+    return v86
+end
+local function createChatLine_1(p22, p23, p24)
+    local v128 = {}
+    local function ComputeBubbleLifetime_1(p25, p26, p27)
+        if not p27 then
+            return 8 + 7 * math.min(string.len(p26) / 75, 1)
+        end
+        v131 = 12
+        v132 = 8
+        v138 = math.min
+        v139 = v132 * v138(string.len(p26) / 75, 1)
+        return v131 + v139
+    end
+    v128.ComputeBubbleLifetime = ComputeBubbleLifetime_1
+    ComputeBubbleLifetime_1 = nil
+    v128.Origin = ComputeBubbleLifetime_1
+    ComputeBubbleLifetime_1 = nil
+    v128.RenderBubble = ComputeBubbleLifetime_1
+    v128.Message = p22
+    v128.BubbleDieDelay = v128:ComputeBubbleLifetime(p22, p24)
+    v128.BubbleColor = p23
+    v128.IsLocalPlayer = p24
+    return v128
+end
+local function createPlayerChatLine_1(p28, p29, p30)
+    local v158 = createChatLine_1(p29, v28.WHITE, p30)
+    if not p28 then
+        v158.User = p28.Name
+        v158.Origin = p28.Character
+    end
+    return v158
+end
+local function createGameChatLine_1(p31, p32, p33, p34)
+    local v168 = createChatLine_1(p32, p34, p33)
+    v168.Origin = p31
+    return v168
+end
+createChatBubbleMain = function(p35, p36)
+    local v173 = Instance.new("ImageLabel")
+    v173.Name = "ChatBubble"
+    v173.ScaleType = Enum.ScaleType.Slice
+    v173.SliceCenter = p36
+    v173.Image = "rbxasset://textures/" .. tostring(p35) .. ".png"
+    v173.BackgroundTransparency = 1
+    v173.BorderSizePixel = 0
+    v173.Size = UDim2.new(1, 0, 1, 0)
+    v173.Position = UDim2.new(0, 0, 0, 0)
+    return v173
+end
+createChatBubbleTail = function(p37, p38)
+    local v200 = Instance.new("ImageLabel")
+    v200.Name = "ChatBubbleTail"
+    v200.Image = "rbxasset://textures/ui/dialog_tail.png"
+    v200.BackgroundTransparency = 1
+    v200.BorderSizePixel = 0
+    v200.Position = p37
+    v200.Size = p38
+    return v200
+end
+createChatBubbleWithTail = function(p39, p40, p41, p42)
+    local v209 = createChatBubbleMain(p39, p42)
+    createChatBubbleTail(p40, p41).Parent = v209
+    return v209
+end
+createScaledChatBubbleWithTail = function(p43, p44, p45, p46)
+    local v218 = createChatBubbleMain(p43, p46)
+    local v221 = Instance.new("Frame")
+    v221.Name = "ChatBubbleTailFrame"
+    v221.BackgroundTransparency = 1
+    v221.SizeConstraint = Enum.SizeConstraint.RelativeXX
+    v221.Position = UDim2.new(0.5, 0, 1, 0)
+    v221.Size = UDim2.new(p44, 0, p44, 0)
+    v221.Parent = v218
+    createChatBubbleTail(p45, UDim2.new(1, 0, 0.5, 0)).Parent = v221
+    return v218
+end
+local function createChatImposter_1(p47, p48, p49)
+    local v248 = Instance.new("ImageLabel")
+    v248.Name = "DialogPlaceholder"
+    v248.Image = "rbxasset://textures/" .. tostring(p47) .. ".png"
+    v248.BackgroundTransparency = 1
+    v248.BorderSizePixel = 0
+    v248.Position = UDim2.new(0, 0, -1.25, 0)
+    v248.Size = UDim2.new(1, 0, 1, 0)
+    local v263 = Instance.new("ImageLabel")
+    v263.Name = "DotDotDot"
+    v263.Image = "rbxasset://textures/" .. tostring(p48) .. ".png"
+    v263.BackgroundTransparency = 1
+    v263.BorderSizePixel = 0
+    v263.Position = UDim2.new(0.001, 0, p49, 0)
+    v263.Size = UDim2.new(1, 0, 0.7, 0)
+    v263.Parent = v248
+    return v248
+end
+createChatImposter = createChatImposter_1
+createChatImposter_1 = {}
+createChatImposter_1.ChatBubble = {}
+createChatImposter_1.ChatBubbleWithTail = {}
+createChatImposter_1.ScalingChatBubbleWithTail = {}
+createChatImposter_1.CharacterSortedMsg = (function()
+    local v92 = {}
+    local v93 = {}
+    v92.data = v93
+    v93 = 0
+    v92.Size = function(p13)
+        return v93
+    end
+    v92.Erase = function(p14, p15)
+        local v99 = v92.data
+        local v100 = v99[p15]
+        if not v100 then
+            v99 = v93
+            v100 = v99 - 1
+            v93 = v100
+        end
+        v92.data[p15] = nil
+    end
+    v92.Set = function(p16, p17, p18)
+        local v105 = v92
+        local v106 = v105.data
+        v106[p17] = p18
+        if not p18 then
+            v105 = v93
+            v106 = v105 + 1
+            v93 = v106
+        end
+    end
+    v92.Get = function(p19, p20)
+        if p20 then
+            return 
+        end
+        local v108 = v92
+        local v109 = v108.data
+        local v110 = v109[p20]
+        if v110 then
+            v109 = v92
+            v110 = v109.data
+            v108 = {}
+            v108.Fifo = createFifo_1()
+            v108.BillboardGui = nil
+            v109 = v108
+            v110[p20] = v109
+            v110 = nil
+            v108 = v92.data[p20].Fifo
+            v109 = v108.Emptied
+            v110 = v109:connect(function()
+                v110:disconnect()
+                v92:Erase(p20)
+            end)
+        end
+        v118 = v92.data
+        v110 = v118[p20]
+        return v110
+    end
+    v92.GetData = function(p21)
+        return v92.data
+    end
+    return v92
+end)()
+local function initChatBubbleType_1(p50, p51, p52, p53, p54)
+    createChatImposter_1.ChatBubble[p50] = createChatBubbleMain(p51, p54)
+    if not p53 then
+        local v309 = -1
+    else
+        v309 = 0
+    end
+    createChatImposter_1.ChatBubbleWithTail[p50] = createChatBubbleWithTail(p51, UDim2.new(0.5, -14, 1, v309), UDim2.new(0, 30, 0, 14), p54)
+    if not p53 then
+        local v325 = -1
+    else
+        v325 = 0
+    end
+    createChatImposter_1.ScalingChatBubbleWithTail[p50] = createScaledChatBubbleWithTail(p51, 0.5, UDim2.new(-0.5, 0, 0, v325), p54)
+end
+initChatBubbleType_1(v28.WHITE, "ui/dialog_white", "ui/chatBubble_white_notify_bkg", false, Rect.new(5, 5, 15, 15))
+initChatBubbleType_1(v28.BLUE, "ui/dialog_blue", "ui/chatBubble_blue_notify_bkg", true, Rect.new(7, 7, 33, 33))
+initChatBubbleType_1(v28.RED, "ui/dialog_red", "ui/chatBubble_red_notify_bkg", true, Rect.new(7, 7, 33, 33))
+initChatBubbleType_1(v28.GREEN, "ui/dialog_green", "ui/chatBubble_green_notify_bkg", true, Rect.new(7, 7, 33, 33))
+createChatImposter_1.SanitizeChatLine = function(p55, p56)
+    local v380 = string.len(p56)
+    local v381 = 124
+    if v380 > v381 then
+        v381 = p56
+        v380 = string.sub
+        return v380(v381, 1, 127)
+    end
+    return p56
+end
+local function createBillboardInstance_1(p57)
+    local v387 = Instance.new("BillboardGui")
+    v387.Adornee = p57
+    v387.Size = UDim2.new(0, 400, 0, 250)
+    v387.StudsOffset = Vector3.new(0, 1.5, 2)
+    v387.Parent = v31
+    local v399 = Instance.new("Frame")
+    v399.Name = "BillboardFrame"
+    v399.Size = UDim2.new(1, 0, 1, 0)
+    local v410 = UDim2.new(0, 0, -0.5, 0)
+    v399.Position = v410
+    v399.BackgroundTransparency = 1
+    v399.Parent = v387
+    local v428
+    local v429 = v399.ChildRemoved:connect(function()
+        local v415 = #v399:GetChildren()
+        if 1 >= v415 then
+            v415 = v410
+            v415:disconnect()
+            v387:Destroy()
+        end
+    end)
+    createChatImposter_1:CreateSmallTalkBubble(v28.WHITE).Parent = v399
+    return v387
+end
+createChatImposter_1.CreateBillboardGuiHelper = function(p58, p59, p60)
+    if not p59 then
+        local v433 = createChatImposter_1
+        local v436 = v433.CharacterSortedMsg:Get(p59)
+        if v436.BillboardGui then
+            if p60 then
+                v433 = "BasePart"
+                local v438 = p59:IsA(v433)
+                if not v438 then
+                    v438 = createBillboardInstance_1
+                    v436 = p59
+                    createChatImposter_1.CharacterSortedMsg:Get(p59).BillboardGui = v438(v436)
+                    return 
+                end
+            end
+            v440 = "Model"
+            if not p59:IsA(v440) then
+                local v446 = p59:FindFirstChild("Head")
+                if not v446 then
+                    local v448 = v446:IsA("BasePart")
+                    if not v448 then
+                        v448 = createBillboardInstance_1
+                        createChatImposter_1.CharacterSortedMsg:Get(p59).BillboardGui = v448(v446)
+                    end
+                end
+            end
+        end
+    end
+end
+local function distanceToBubbleOrigin_1(p61)
+    if p61 then
+        return 100000
+    end
+    return p61.Position - game.Workspace.CurrentCamera.CoordinateFrame.p.magnitude
+end
+local function isPartOfLocalPlayer_1(p62)
+    if not p62 then
+        local v467 = v3
+        if not v467.LocalPlayer.Character then
+            v467 = v3.LocalPlayer.Character
+            return p62:IsDescendantOf(v467)
+        end
+    end
+end
+createChatImposter_1.SetBillboardLODNear = function(p63, p64)
+    local v474 = p64.Adornee
+    if not v474 then
+        local v475 = v3
+        if not v475.LocalPlayer.Character then
+            v475 = v3.LocalPlayer.Character
+            local v481 = v474:IsDescendantOf(v475)
+        else
+            v481 = nil
+        end
+        v474 = UDim2.new
+        v480 = 0
+        v479 = 250
+        p64.Size = v474(v480, 400, 0, v479)
+        if not v481 then
+            local v485 = 1.5
+        else
+            v485 = 2.5
+        end
+        if not v481 then
+            local v486 = 2
+        else
+            v486 = 0.1
+        end
+        p64.StudsOffset = Vector3.new(0, v485, v486)
+        p64.Enabled = true
+        local v488 = p64.BillboardFrame:GetChildren()
+        local v489 = 1
+        local v490 = #v488
+        local v491 = 1
+        for v489 = v489, v490, v491 do
+            v478 = true
+            v488[v489].Visible = v478
+        end
+        v491 = p64.BillboardFrame
+        v490 = v491.SmallTalkBubble
+        v490.Visible = false
+        return 
+    end
+end
+createChatImposter_1.SetBillboardLODDistant = function(p65, p66)
+    local v499 = p66.Adornee
+    if not v499 then
+        local v500 = v3
+        if not v500.LocalPlayer.Character then
+            v500 = v3.LocalPlayer.Character
+            local v506 = v499:IsDescendantOf(v500)
+        else
+            v506 = nil
+        end
+        v499 = UDim2.new
+        v505 = 4
+        v504 = 0
+        p66.Size = v499(v505, 0, 3, v504)
+        if not v506 then
+            local v511 = 2
+        else
+            v511 = 0.1
+        end
+        p66.StudsOffset = Vector3.new(0, 3, v511)
+        p66.Enabled = true
+        local v513 = p66.BillboardFrame:GetChildren()
+        local v514 = 1
+        local v515 = #v513
+        local v516 = 1
+        for v514 = v514, v515, v516 do
+            v503 = false
+            v513[v514].Visible = v503
+        end
+        v516 = p66.BillboardFrame
+        v515 = v516.SmallTalkBubble
+        v515.Visible = true
+        return 
+    end
+end
+createChatImposter_1.SetBillboardLODVeryFar = function(p67, p68)
+    p68.Enabled = false
+end
+createChatImposter_1.SetBillboardGuiLOD = function(p69, p70, p71)
+    if p71 then
+        return 
+    end
+    if not p71:IsA("Model") then
+        local v530 = p71:FindFirstChild("Head")
+        if v530 then
+            p71 = p71.PrimaryPart
+        else
+            p71 = v530
+        end
+    end
+    local v531 = p71
+    if v531 then
+        v530 = 100000
+    else
+        v530 = v531.Position - game.Workspace.CurrentCamera.CoordinateFrame.p.magnitude
+    end
+    local v543 = 65
+    if v543 > v530 then
+        v543 = createChatImposter_1
+        v532 = p70
+        v543:SetBillboardLODNear(v532)
+        return 
+    end
+    local v539 = 65
+    if v530 >= v539 then
+        v539 = 100
+        if v539 > v530 then
+            v539 = createChatImposter_1
+            v539:SetBillboardLODDistant(p70)
+            return 
+        end
+    end
+    createChatImposter_1:SetBillboardLODVeryFar(p70)
+end
+createChatImposter_1.CameraCFrameChanged = function(p72)
+    local v546 = createChatImposter_1
+    local v548, v549, v546 = pairs(v546.CharacterSortedMsg:GetData())
+    for v555, v551 in v548, v549, v546 do
+        local v550 = v551.BillboardGui
+        if not v550 then
+            createChatImposter_1:SetBillboardGuiLOD(v550, v555)
+        end
+    end
+end
+createChatImposter_1.CreateBubbleText = function(p73, p74)
+    local v559 = Instance.new("TextLabel")
+    v559.Name = "BubbleText"
+    v559.BackgroundTransparency = 1
+    v559.Position = UDim2.new(0, 15, 0, 0)
+    v559.Size = UDim2.new(1, -30, 1, 0)
+    v559.Font = v26
+    local v575 = v25
+    if not v575 then
+        v575 = true
+        v559.ClipsDescendants = v575
+    end
+    v559.TextWrapped = true
+    v559.FontSize = v27
+    v559.Text = p74
+    v559.Visible = false
+    v559.AutoLocalize = false
+    return v559
+end
+createChatImposter_1.CreateSmallTalkBubble = function(p75, p76)
+    local v584 = createChatImposter_1.ScalingChatBubbleWithTail[p76]:Clone()
+    v584.Name = "SmallTalkBubble"
+    v584.AnchorPoint = Vector2.new(0, 0.5)
+    v584.Position = UDim2.new(0, 0, 0.5, 0)
+    v584.Visible = false
+    local v593 = createChatImposter_1:CreateBubbleText("...")
+    v593.TextScaled = true
+    v593.TextWrapped = false
+    v593.Visible = true
+    v593.Parent = v584
+    return v584
+end
+createChatImposter_1.UpdateChatLinesForOrigin = function(p77, p78, p79)
+    local v608 = createChatImposter_1.CharacterSortedMsg:Get(p78).Fifo
+    local v610 = v608:GetData()
+    local v611 = #v610
+    local v612 = 1
+    if v612 >= v611 then
+        return 
+    end
+    local v613 = #v610
+    local v614 = v613 - 1
+    v611 = 1
+    v612 = -1
+    for v614 = v614, v611, v612 do
+        v613 = v610[v614]
+        local v615 = v613.RenderBubble
+        if v615 then
+            return 
+        end
+        if v608:Size() - v614 + 1 > 1 then
+            local v619 = v615:FindFirstChild("ChatBubbleTail")
+            if not v619 then
+                v619:Destroy()
+            end
+            local v623 = v615:FindFirstChild("BubbleText")
+            if not v623 then
+                v623.TextTransparency = 0.5
+            end
+        end
+        v619 = UDim2.new
+        v624 = v615.Position.X
+        v623 = v624.Scale
+        v624 = v615.Position.X.Offset
+        v615:TweenPosition(v619(v623, v624, 1, p79 - v615.Size.Y.Offset - 14), Enum.EasingDirection.Out, Enum.EasingStyle.Bounce, 0.1, true)
+        p79 = p79 - v615.Size.Y.Offset - 14
+    end
+end
+createChatImposter_1.DestroyBubble = function(p80, p81, p82)
+    if p81 then
+        return 
+    end
+    local v648 = p81:Empty()
+    if not v648 then
+        return 
+    end
+    v648 = p81:Front().RenderBubble
+    if v648 then
+        p81:PopFront()
+        return 
+    end
+    spawn(function()
+        while true do
+            local v655 = p81:Front().RenderBubble
+            if v655 ~= p82 then
+                break
+            end
+            v655 = wait
+            v655()
+        end
+        v654 = p81
+        v648 = v654:Front().RenderBubble
+        local v671 = 0
+        local v659 = v648:FindFirstChild("BubbleText")
+        local v662 = v648:FindFirstChild("ChatBubbleTail")
+        while true do
+            local v663 = v648
+            if not v663 then
+                break
+            end
+            v663 = v648.ImageTransparency
+            local v673 = 1
+            if v673 > v663 then
+                break
+            end
+            v663 = wait
+            v671 = v663()
+            local v674 = v648
+            if not v674 then
+                v674 = v671 * 1.5
+                v673 = v648
+                local v668 = v648.ImageTransparency + v674
+                v673.ImageTransparency = v668
+                if not v659 then
+                    v668 = v659.TextTransparency
+                    v673 = v668 + v674
+                    v659.TextTransparency = v673
+                end
+                if not v662 then
+                    v668 = v662.ImageTransparency
+                    v673 = v668 + v674
+                    v662.ImageTransparency = v673
+                end
+            end
+        end
+        v665 = v648
+        if not v665 then
+            v665 = v648
+            v665:Destroy()
+            p81:PopFront()
+        end
+    end)
+end
+createChatImposter_1.CreateChatLineRender = function(p83, p84, p85, p86, p87)
+    if p84 then
+        return 
+    end
+    local v676 = createChatImposter_1
+    local v680 = v676.CharacterSortedMsg:Get(p84).BillboardGui
+    if v680 then
+        v680 = createChatImposter_1
+        v676 = p84
+        v680:CreateBillboardGuiHelper(v676, p86)
+    end
+    local v682 = createChatImposter_1
+    local v684 = v682.CharacterSortedMsg:Get(p84)
+    local v685 = v684.BillboardGui
+    if not v685 then
+        v682 = createChatImposter_1.ChatBubbleWithTail
+        v684 = v682[p85.BubbleColor]
+        local v687 = v684:Clone()
+        v682 = false
+        v687.Visible = v682
+        v682 = createChatImposter_1
+        local v689 = v682:CreateBubbleText(p85.Message)
+        v689.Parent = v687
+        v687.Parent = v685.BillboardFrame
+        p85.RenderBubble = v687
+        local v696 = v12:GetTextSize(v689.Text, 24, v26, Vector2.new(400, 250))
+        local v701 = math.max(v696.X + 30 / 400, 0.1)
+        v687.Size = UDim2.new(0, 0, 0, 0)
+        v687.Position = UDim2.new(0.5, 0, 1, 0)
+        local v753 = v696.Y / 24 * 34
+        v687:TweenSizeAndPosition(UDim2.new(v701, 0, 0, v753), UDim2.new(1 - v701 / 2, 0, 1, -v753), Enum.EasingDirection.Out, Enum.EasingStyle.Elastic, 0.1, true, function()
+            v689.Visible = true
+        end)
+        createChatImposter_1:SetBillboardGuiLOD(v685, p85.Origin)
+        createChatImposter_1:UpdateChatLinesForOrigin(p85.Origin, -v753)
+        delay(p85.BubbleDieDelay, function()
+            createChatImposter_1:DestroyBubble(p87, v687)
+        end)
+    end
+end
+createChatImposter_1.OnPlayerChatMessage = function(p88, p89, p90, p91)
+    local v758 = createChatImposter_1:BubbleChatEnabled()
+    if v758 then
+        return 
+    end
+    v758 = v3.LocalPlayer
+    local v779 = false
+    if p89 == v758 then
+        v779 = false
+    end
+    local v763 = not true
+    local v768 = createChatLine_1(createChatImposter_1:SanitizeChatLine(p90), v28.WHITE, v763)
+    if not p89 then
+        v768.User = p89.Name
+        v768.Origin = p89.Character
+    end
+    local v770 = v768
+    if not p89 then
+        v763 = v770.Origin
+        if not v763 then
+            v769 = createChatImposter_1
+            v768 = v769.CharacterSortedMsg
+            v763 = v768:Get(v770.Origin).Fifo
+            v763:PushBack(v770)
+            createChatImposter_1:CreateChatLineRender(p89.Character, v770, true, v763)
+        end
+    end
+end
+createChatImposter_1.OnGameChatMessage = function(p92, p93, p94, p95)
+    local v809 = false
+    local v786 = v3.LocalPlayer.Character
+    if v786 == p93 then
+        v809 = false
+    end
+    v786 = v28.WHITE
+    local v811 = Enum.ChatColor.Blue
+    if p95 == v811 then
+        v811 = v28
+        v786 = v811.BLUE
+    else
+        v811 = Enum.ChatColor.Green
+        if p95 == v811 then
+            v811 = v28
+            v786 = v811.GREEN
+        else
+            v811 = Enum.ChatColor.Red
+            if p95 == v811 then
+                v811 = v28
+                v786 = v811.RED
+            end
+        end
+    end
+    local v796 = createChatLine_1(createChatImposter_1:SanitizeChatLine(p94), v786, not true)
+    v796.Origin = p93
+    local v797 = v796
+    createChatImposter_1.CharacterSortedMsg:Get(v797.Origin).Fifo:PushBack(v797)
+    createChatImposter_1:CreateChatLineRender(p93, v797, false, createChatImposter_1.CharacterSortedMsg:Get(v797.Origin).Fifo)
+end
+createChatImposter_1.BubbleChatEnabled = function(p96)
+    local v820 = v9:FindFirstChild("ClientChatModules")
+    if not v820 then
+        local v823 = v820:FindFirstChild("ChatSettings")
+        if not v823 then
+            local v826 = require(v823)
+            local v827 = v826.BubbleChatEnabled
+            v827 = v826.BubbleChatEnabled
+            return v827
+        end
+    end
+    v826 = v3
+    v823 = v826.BubbleChat
+    return v823
+end
+createChatImposter_1.ShowOwnFilteredMessage = function(p97)
+    local v831 = v9:FindFirstChild("ClientChatModules")
+    if not v831 then
+        local v834 = v831:FindFirstChild("ChatSettings")
+        if not v834 then
+            v834 = require(v834)
+            return v834.ShowUserOwnFilteredMessage
+        end
+    end
+    v834 = false
+    return v834
+end
+local function findPlayer_1(p98)
+    local v842, v843, v844 = pairs(v3:GetPlayers())
+    for v847, v848 in v842, v843, v844 do
+        if v846.Name == p98 then
+            return v846
+        end
+    end
+end
+findPlayer = findPlayer_1
+findPlayer_1 = v9.Chatted
+findPlayer_1:connect(function(p99, p100, p101)
+    createChatImposter_1:OnGameChatMessage(p99, p100, p101)
+end)
+local v854
+local v855 = game
+local v856 = v855.Workspace
+local v857 = v856.CurrentCamera
+if not v857 then
+    v855 = game
+    v856 = v855.Workspace
+    v857 = v856.CurrentCamera
+    v855 = "CFrame"
+    v854 = (v857:GetPropertyChangedSignal(v855)):connect(function(p102)
+        createChatImposter_1:CameraCFrameChanged()
+    end)
+end
+v861 = game.Workspace.Changed
+v861:connect(function(p103)
+    local v863 = v854
+    if not v863 then
+        v863 = v854
+        v863:disconnect()
+    end
+    local v864 = game
+    local v865 = v864.Workspace
+    local v866 = v865.CurrentCamera
+    if not v866 then
+        v864 = game
+        v865 = v864.Workspace
+        v866 = v865.CurrentCamera
+        v864 = "CFrame"
+        v854 = (v866:GetPropertyChangedSignal(v864)):connect(function(p104)
+            createChatImposter_1:CameraCFrameChanged()
+        end)
+    end
+end)
+local v871
+getAllowedMessageTypes = function()
+    local v873 = v871
+    if not v873 then
+        v873 = v871
+        return v873
+    end
+    local v876 = v9:FindFirstChild("ClientChatModules")
+    if not v876 then
+        local v879 = v876:FindFirstChild("ChatSettings")
+        if not v879 then
+            v879 = require(v879)
+            local v892 = v879.BubbleChatMessageTypes
+            if not v892 then
+                v892 = v879.BubbleChatMessageTypes
+                v871 = v892
+                v892 = v871
+                return v892
+            end
+        end
+        local v885 = v876:FindFirstChild("ChatConstants")
+        if not v885 then
+            v885 = require(v885)
+            local v893 = {}
+            v893[1] = v885.MessageTypeDefault
+            v893[2] = v885.MessageTypeWhisper
+            v871 = v893
+        end
+        v888 = v871
+        return v888
+    end
+    v879 = {}
+    v885 = "Message"
+    v879[1] = v885
+    v879[2] = "Whisper"
+    return v879
+end
+checkAllowedMessageType = function(p105)
+    local v896 = getAllowedMessageTypes()
+    local v897 = 1
+    local v898 = #v896
+    for v897 = v897, v898, 1 do
+        local v900 = v896[v897]
+        if v900 == p105.MessageType then
+            v900 = true
+            return v900
+        end
+    end
+    v898 = false
+    return v898
+end
+local v903 = (game:GetService("ReplicatedStorage")):WaitForChild("DefaultChatSystemChatEvents")
+v903:WaitForChild("OnNewMessage").OnClientEvent:connect(function(p106, p107)
+    local v914 = checkAllowedMessageType(p106)
+    if v914 then
+        return 
+    end
+    v914 = findPlayer
+    local v916 = v914(p106.FromSpeaker)
+    if v916 then
+        return 
+    end
+    local v917 = p106.IsFiltered
+    if not v917 then
+        v917 = p106.FromSpeaker
+        local v918 = v13
+        local v919 = v918.Name
+        if v917 == v919 then
+            v917 = p106.FromSpeaker
+            v918 = v13
+            v919 = v918.Name
+            if v917 == v919 then
+                v917 = createChatImposter_1
+                local v920 = v917:ShowOwnFilteredMessage()
+                if not v920 then
+                    return 
+                end
+                v920 = createChatImposter_1
+                v918 = v916
+                v920:OnPlayerChatMessage(v918, p106.Message, nil)
+                return 
+            end
+        end
+    end
+end)
+v903:WaitForChild("OnMessageDoneFiltering").OnClientEvent:connect(function(p108, p109)
+    local v927 = checkAllowedMessageType(p108)
+    if v927 then
+        return 
+    end
+    v927 = findPlayer
+    local v929 = v927(p108.FromSpeaker)
+    if v929 then
+        return 
+    end
+    local v930 = p108.FromSpeaker
+    if v930 == v13.Name then
+        v930 = createChatImposter_1
+        if v930:ShowOwnFilteredMessage() then
+            return 
+        end
+    end
+    v933 = createChatImposter_1
+    v933:OnPlayerChatMessage(v929, p108.Message, nil)
+end)
+
+//
+
+local v3 = game:GetService("StarterGui")
+local v12 = (game:GetService("Chat")):WaitForChild("ClientChatModules")
+local v14 = "ChatSettings"
+local v16 = require(v12:WaitForChild(v14))
+local function DoEverything_1()
+    local v20 = script
+    local v21 = "ChatMain"
+    local v22 = require(v20:WaitForChild(v21))
+    local v23 = {}
+    v23.ChatWindow = {}
+    v23.SetCore = {}
+    v23.GetCore = {}
+    v23.ChatWindow.ChatTypes = {}
+    v23.ChatWindow.ChatTypes.BubbleChatEnabled = v16.BubbleChatEnabled
+    v23.ChatWindow.ChatTypes.ClassicChatEnabled = v16.ClassicChatEnabled
+    local function ConnectEvent_1(p1)
+        local v30 = Instance.new("BindableEvent")
+        v30.Name = p1
+        v23.ChatWindow[p1] = v30
+        v30.Event:connect(function(...)
+            v22[p1](v22, ...)
+        end)
+    end
+    local function ConnectFunction_1(p2)
+        local v42 = Instance.new("BindableFunction")
+        v42.Name = p2
+        v23.ChatWindow[p2] = v42
+        v42.OnInvoke = function(...)
+            return v22[p2](v22, ...)
+        end
+    end
+    local function ReverseConnectEvent_1(p3)
+        local v53 = Instance.new("BindableEvent")
+        v53.Name = p3
+        v23.ChatWindow[p3] = v53
+        v22[p3]:connect(function(...)
+            v53:Fire(...)
+        end)
+    end
+    local function ConnectSignal_1(p4)
+        local v64 = Instance.new("BindableEvent")
+        v64.Name = p4
+        v23.ChatWindow[p4] = v64
+        v64.Event:connect(function(...)
+            v22[p4]:fire(...)
+        end)
+    end
+    local function ConnectSetCore_1(p5)
+        local v76 = Instance.new("BindableEvent")
+        v76.Name = p5
+        v23.SetCore[p5] = v76
+        v76.Event:connect(function(...)
+            v22[p5 .. "Event"]:fire(...)
+        end)
+    end
+    local function ConnectGetCore_1(p6)
+        local v90 = Instance.new("BindableFunction")
+        v90.Name = p6
+        v23.GetCore[p6] = v90
+        v90.OnInvoke = function(...)
+            return v22["f" .. p6](...)
+        end
+    end
+    local v101 = Instance.new("BindableEvent")
+    v101.Name = "ToggleVisibility"
+    v23.ChatWindow.ToggleVisibility = v101
+    local v103 = "ToggleVisibility"
+    v101.Event:connect(function(...)
+        v22[p1](v22, ...)
+    end)
+    local v110 = Instance.new("BindableEvent")
+    v110.Name = "SetVisible"
+    v23.ChatWindow.SetVisible = v110
+    v103 = "SetVisible"
+    v110.Event:connect(function(...)
+        v22[p1](v22, ...)
+    end)
+    local v118 = Instance.new("BindableEvent")
+    v118.Name = "FocusChatBar"
+    v23.ChatWindow.FocusChatBar = v118
+    v103 = "FocusChatBar"
+    v118.Event:connect(function(...)
+        v22[p1](v22, ...)
+    end)
+    local v126 = Instance.new("BindableFunction")
+    v126.Name = "GetVisibility"
+    v23.ChatWindow.GetVisibility = v126
+    local v128 = "GetVisibility"
+    v126.OnInvoke = function(...)
+        return v22[p2](v22, ...)
+    end
+    local v133 = Instance.new("BindableFunction")
+    v133.Name = "GetMessageCount"
+    v23.ChatWindow.GetMessageCount = v133
+    v128 = "GetMessageCount"
+    v133.OnInvoke = function(...)
+        return v22[p2](v22, ...)
+    end
+    local v139 = Instance.new("BindableEvent")
+    v139.Name = "TopbarEnabledChanged"
+    v23.ChatWindow.TopbarEnabledChanged = v139
+    v103 = "TopbarEnabledChanged"
+    v139.Event:connect(function(...)
+        v22[p1](v22, ...)
+    end)
+    local v147 = Instance.new("BindableFunction")
+    v147.Name = "IsFocused"
+    v23.ChatWindow.IsFocused = v147
+    v128 = "IsFocused"
+    v147.OnInvoke = function(...)
+        return v22[p2](v22, ...)
+    end
+    local v153 = Instance.new("BindableEvent")
+    v153.Name = "ChatBarFocusChanged"
+    v23.ChatWindow.ChatBarFocusChanged = v153
+    v22.ChatBarFocusChanged:connect(function(...)
+        v53:Fire(...)
+    end)
+    local v158 = Instance.new("BindableEvent")
+    v158.Name = "VisibilityStateChanged"
+    v23.ChatWindow.VisibilityStateChanged = v158
+    v22.VisibilityStateChanged:connect(function(...)
+        v53:Fire(...)
+    end)
+    local v163 = Instance.new("BindableEvent")
+    v163.Name = "MessagesChanged"
+    v23.ChatWindow.MessagesChanged = v163
+    v22.MessagesChanged:connect(function(...)
+        v53:Fire(...)
+    end)
+    local v168 = Instance.new("BindableEvent")
+    v168.Name = "MessagePosted"
+    v23.ChatWindow.MessagePosted = v168
+    v22.MessagePosted:connect(function(...)
+        v53:Fire(...)
+    end)
+    local v173 = Instance.new("BindableEvent")
+    v173.Name = "CoreGuiEnabled"
+    v23.ChatWindow.CoreGuiEnabled = v173
+    v103 = "CoreGuiEnabled"
+    v173.Event:connect(function(...)
+        v22[p4]:fire(...)
+    end)
+    local v180 = Instance.new("BindableEvent")
+    v180.Name = "ChatMakeSystemMessage"
+    v23.SetCore.ChatMakeSystemMessage = v180
+    v103 = "ChatMakeSystemMessage"
+    v180.Event:connect(function(...)
+        v22[p5 .. "Event"]:fire(...)
+    end)
+    local v189 = Instance.new("BindableEvent")
+    v189.Name = "ChatWindowPosition"
+    v23.SetCore.ChatWindowPosition = v189
+    v103 = "ChatWindowPosition"
+    v189.Event:connect(function(...)
+        v22[p5 .. "Event"]:fire(...)
+    end)
+    local v198 = Instance.new("BindableEvent")
+    v198.Name = "ChatWindowSize"
+    v23.SetCore.ChatWindowSize = v198
+    v103 = "ChatWindowSize"
+    v198.Event:connect(function(...)
+        v22[p5 .. "Event"]:fire(...)
+    end)
+    local v207 = Instance.new("BindableFunction")
+    v207.Name = "ChatWindowPosition"
+    v23.GetCore.ChatWindowPosition = v207
+    v128 = "ChatWindowPosition"
+    v207.OnInvoke = function(...)
+        return v22["f" .. p6](...)
+    end
+    local v214 = Instance.new("BindableFunction")
+    v214.Name = "ChatWindowSize"
+    v23.GetCore.ChatWindowSize = v214
+    v128 = "ChatWindowSize"
+    v214.OnInvoke = function(...)
+        return v22["f" .. p6](...)
+    end
+    local v221 = Instance.new("BindableEvent")
+    v221.Name = "ChatBarDisabled"
+    v23.SetCore.ChatBarDisabled = v221
+    v103 = "ChatBarDisabled"
+    v221.Event:connect(function(...)
+        v22[p5 .. "Event"]:fire(...)
+    end)
+    local v230 = Instance.new("BindableFunction")
+    v230.Name = "ChatBarDisabled"
+    v23.GetCore.ChatBarDisabled = v230
+    v128 = "ChatBarDisabled"
+    v230.OnInvoke = function(...)
+        return v22["f" .. p6](...)
+    end
+    local v237 = Instance.new("BindableEvent")
+    v237.Name = "SpecialKeyPressed"
+    v23.ChatWindow.SpecialKeyPressed = v237
+    v103 = "SpecialKeyPressed"
+    v237.Event:connect(function(...)
+        v22[p1](v22, ...)
+    end)
+    SetCoreGuiChatConnections(v20:WaitForChild(v21))
+end
+SetCoreGuiChatConnections = function(p7)
+    local v323 = 0
+    while true do
+        local v324 = 10
+        if v324 > v323 then
+            break
+        end
+        v323 = v323 + 1
+        v324 = pcall
+        local v329, v330 = v324(function()
+            v3:SetCore("CoreGuiChatConnections", p7)
+        end)
+        if v329 then
+            break
+        end
+        if v329 then
+            error("Error calling SetCore CoreGuiChatConnections: " .. v330)
+        end
+        wait()
+    end
+end
+checkBothChatTypesDisabled = function()
+    local v338 = v16.BubbleChatEnabled
+    v338 = v16.ClassicChatEnabled
+    local v339 = v16
+    local v342 = v339.BubbleChatEnabled
+    if v342 then
+        v339 = v16
+        v342 = v339.ClassicChatEnabled
+    end
+    v338 = not v342
+    return v338
+    return false
+end
+local v343 = (game:GetService("GuiService")):IsTenFootInterface()
+if v343 then
+    local v346 = game:GetService("UserInputService")
+    v343 = v346.VREnabled
+    if v343 then
+        v343 = checkBothChatTypesDisabled
+        local v347 = v343()
+        if v347 then
+            v347 = v12:WaitForChild(v14)
+            v347()
+            return 
+        end
+        local v348 = {}
+        v346 = {}
+        v348.ChatWindow = v346
+        v346 = v348.ChatWindow
+        v346.ChatTypes = {}
+        v346 = v348.ChatWindow.ChatTypes
+        v346.BubbleChatEnabled = false
+        v346 = v348.ChatWindow.ChatTypes
+        v346.ClassicChatEnabled = false
+        v346 = SetCoreGuiChatConnections
+        v346(v348)
+    end
+end
+
+
+//
+
+
+
+
+
