@@ -200,3 +200,129 @@ local function PlayTweens_1(p4)
         v244:Play()
     end
 end
+local v246 = 0
+local v248 = game.Players
+local v250 = v248.LocalPlayer:GetAttribute("Elite")
+local v253 = game:GetService("UserInputService")
+local v254 = v253.TouchEnabled
+if not v254 then
+    v253 = game
+    local v256 = v253:GetService("UserInputService")
+    v254 = v256.KeyboardEnabled
+    if v254 then
+        v248 = v4.TabletCashBag
+        if v248 then
+            v248 = v4.CashBag
+        end
+        v254 = _G
+        v256 = false
+        v254.CoinBagFull = v256
+        v256 = game.ReplicatedStorage.Remotes.Gameplay.GetCoin
+        v254 = v256.OnClientEvent
+        v254:connect(function(p5, p6)
+            local v261 = v246
+            if p5 > v261 then
+                v261 = v246 + p6
+                v246 = v261
+            end
+            local v314 = v246
+            if v314 > p5 then
+                v246 = p5
+            end
+            local v263 = v248
+            v262 = v263.CoinIcon
+            v314 = v262.Coins
+            v262 = v246
+            v314.Text = v262
+            local v315 = v246
+            if v315 >= p5 then
+                v315 = v248
+                v262 = "http://www.roblox.com/asset/?id=197073328"
+                v315.Image = v262
+                v262 = v248
+                v315 = v262.Full
+                v262 = true
+                v315.Visible = v262
+                v315 = _G
+                v262 = true
+                v315.CoinBagFull = v262
+                v315 = pairs
+                v263 = game
+                v262 = v263.Workspace
+                local v264, v265, v263 = v315(v262:GetChildren())
+                for v281, v268 in v264, v265, v263 do
+                    local v269 = v268:FindFirstChild("CoinContainer")
+                    if not v269 then
+                        local v272, v273, v274 = pairs(v269:GetChildren())
+                        for v280, v279 in v272, v273, v274 do
+                            local v277 = Instance.new("Model")
+                            v277.Name = "BagFull"
+                            v277.Parent = v279
+                        end
+                    end
+                end
+                v265 = v4
+                v264 = v265.CoinBagFull
+                v265 = true
+                v264.Visible = v265
+                v264 = {}
+                v265 = v214
+                v268 = v4
+                v281 = v268.CoinBagFull
+                v268 = v219
+                v269 = {}
+                v272 = UDim2.new
+                v273 = 0.5
+                v274 = 0
+                v280 = 0.8
+                v279 = 0
+                v269.Position = v272(v273, v274, v280, v279)
+                v264[2] = v263
+                v264[2] = v265:Create(v281, v268, v269)
+                v283 = pairs
+                v263 = v264
+                local v285, v286, v284 = v283(v263)
+                for v288, v287 in v285, v286, v284 do
+                    v287:Play()
+                end
+                v264 = wait
+                v285 = 0.5
+                v264(v285)
+                local v289 = {}
+                v288 = v4
+                v284 = v288.CoinBagFull
+                v288 = v227
+                v287 = {}
+                v287.Rotation = 3
+                v289[2] = v286
+                v289[2] = v214:Create(v284, v288, v287)
+                v292 = pairs
+                v286 = v289
+                local v294, v295, v293 = v292(v286)
+                for v297, v296 in v294, v295, v293 do
+                    v296:Play()
+                end
+                v294 = 1.5
+                wait(v294)
+                local v298 = {}
+                v297 = v4
+                v293 = v297.CoinBagFull
+                v297 = v235
+                v296 = {}
+                v296.Position = UDim2.new(0.5, 0, 1.15, 0)
+                v298[2] = v295
+                v298[2] = v214:Create(v293, v297, v296)
+                v306 = pairs
+                v295 = v298
+                local v308, v309, v307 = v306(v295)
+                for v311, v310 in v308, v309, v307 do
+                    v310:Play()
+                end
+                v308 = 0.5
+                wait(v308)
+                v4.CoinBagFull.Visible = false
+            end
+        end)
+        return 
+    end
+end
