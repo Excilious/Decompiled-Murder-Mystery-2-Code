@@ -160,8 +160,3 @@ if not v68 then
     end
     return v1
 end
-
-
-//
-
-
